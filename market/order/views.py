@@ -118,6 +118,7 @@ class HistoryOrdersView(LoginRequiredMixin, ListView):
     Представление для отображения всех заказов пользователя.
     Если пользователя не аутентифицирован, то он перенаправляется на страницу входа
     """
+
     context_object_name = "products"
     template_name = "order/history-orders.jinja2"
 
@@ -132,6 +133,7 @@ class OneOrderView(LoginRequiredMixin, View):
     Представление для отображения конкретного заказа пользователя.
     Если пользователя не аутентифицирован, то он перенаправляется на страницу входа
     """
+
     def get(self, request: HttpRequest, order_pk) -> HttpResponse:
         order = Order.objects.select_related("order_status", "delivery").get(pk=order_pk, user=request.user)
         products = ProductInOrder.objects.select_related("product").filter(order_id=order_pk)

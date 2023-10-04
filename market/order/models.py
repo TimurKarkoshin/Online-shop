@@ -35,9 +35,7 @@ class OrderStatus(models.Model):
         verbose_name = "статус заказа"
         verbose_name_plural = "статусы заказов"
 
-    name = models.CharField(
-        max_length=15, verbose_name=_("название статуса")
-    )
+    name = models.CharField(max_length=15, verbose_name=_("название статуса"))
 
 
 class DeliveryTypesChoices(models.TextChoices):
