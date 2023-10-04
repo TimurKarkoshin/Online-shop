@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-03 20:25+0000\n"
+"POT-Creation-Date: 2023-10-03 21:21+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,8 +16,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
+"(n%100>=11 && n%100<=14)? 2 : 3);\n"
 #: basket/models.py:12
 msgid "корзина пользователя"
 msgstr ""
@@ -27,22 +28,16 @@ msgid "пользователь корзины"
 msgstr ""
 
 #: basket/models.py:23
-#, fuzzy
-#| msgid "предложения"
 msgid "предложения магазинов"
-msgstr "offers"
+msgstr ""
 
 #: basket/models.py:27
-#, fuzzy
-#| msgid "товары в магазине"
 msgid "продукт магазина"
-msgstr "products in shop"
+msgstr ""
 
 #: basket/models.py:30 order/models.py:94
-#, fuzzy
-#| msgid "свойство"
 msgid "количество"
-msgstr "detail"
+msgstr ""
 
 #: comments/forms.py:19
 msgid "Отзыв должен иметь минимум 2 слова."
@@ -63,7 +58,7 @@ msgstr ""
 #: comments/models.py:20 products/models.py:26 shops/models.py:55
 #: sliders/models.py:23
 msgid "продукт"
-msgstr "product"
+msgstr ""
 
 #: comments/models.py:21
 msgid "текст отзыва"
@@ -82,10 +77,8 @@ msgid "Russian"
 msgstr ""
 
 #: history/models.py:12
-#, fuzzy
-#| msgid "товары в магазине"
 msgid "товары в истории"
-msgstr "products in shop"
+msgstr ""
 
 #: history/models.py:17
 msgid "история просмотров"
@@ -128,10 +121,8 @@ msgid "ФИО заказчика"
 msgstr ""
 
 #: order/models.py:21 products/models.py:34
-#, fuzzy
-#| msgid "предложения"
 msgid "дата добавления"
-msgstr "offers"
+msgstr ""
 
 #: order/models.py:22
 msgid "email"
@@ -142,10 +133,8 @@ msgid "номер телефона"
 msgstr ""
 
 #: order/models.py:25 order/models.py:89
-#, fuzzy
-#| msgid "товары в магазине"
 msgid "продукты в заказе"
-msgstr "products in shop"
+msgstr ""
 
 #: order/models.py:27
 msgid "статус заказа"
@@ -156,10 +145,8 @@ msgid "доставка"
 msgstr ""
 
 #: order/models.py:39
-#, fuzzy
-#| msgid "название"
 msgid "название статуса"
-msgstr "name"
+msgstr ""
 
 #: order/models.py:65
 msgid "доставка заказа"
@@ -186,14 +173,12 @@ msgid "тип оплаты"
 msgstr ""
 
 #: order/models.py:88 order/models.py:91
-#, fuzzy
-#| msgid "продукт"
 msgid "продукт в заказе"
-msgstr "product"
+msgstr ""
 
 #: order/models.py:93 shops/models.py:43
 msgid "цена"
-msgstr "price"
+msgstr ""
 
 #: order/services/make_order.py:119 order/views.py:84 order/views.py:146
 msgid "Экспресс доставка"
@@ -205,13 +190,11 @@ msgstr ""
 
 #: products/models.py:10 products/models.py:29 products/models.py:54
 msgid "наименование"
-msgstr "name"
+msgstr ""
 
 #: products/models.py:11 products/models.py:31 sliders/models.py:22
-#, fuzzy
-#| msgid "название"
 msgid "описание"
-msgstr "name"
+msgstr ""
 
 #: products/models.py:15 products/models.py:36 sliders/models.py:39
 msgid "категория"
@@ -223,47 +206,39 @@ msgstr ""
 
 #: products/models.py:27
 msgid "продукты"
-msgstr "products"
+msgstr ""
 
 #: products/models.py:30 products/models.py:52
 msgid "характеристики"
-msgstr "details"
+msgstr ""
 
 #: products/models.py:38
 msgid "ограниченный тираж"
 msgstr ""
 
 #: products/models.py:51
-#, fuzzy
-#| msgid "характеристики"
 msgid "характеристика"
-msgstr "details"
+msgstr ""
 
 #: products/models.py:64
-#, fuzzy
-#| msgid "свойство продукта"
 msgid "изображение продукта"
-msgstr "product detail"
+msgstr ""
 
 #: products/models.py:65
-#, fuzzy
-#| msgid "свойство продукта"
 msgid "изображения продукта"
-msgstr "product detail"
+msgstr ""
 
 #: products/models.py:78
 msgid "свойство продукта"
-msgstr "product detail"
+msgstr ""
 
 #: products/models.py:79
-#, fuzzy
-#| msgid "свойство продукта"
 msgid "свойства продукта"
-msgstr "product detail"
+msgstr ""
 
 #: products/models.py:83
 msgid "значение"
-msgstr "value"
+msgstr ""
 
 #: profiles/forms.py:33 profiles/forms.py:166
 msgid "Такая почта уже зарегистрированная"
@@ -303,19 +278,19 @@ msgstr ""
 
 #: shops/models.py:14
 msgid "магазин"
-msgstr "shop"
+msgstr ""
 
 #: shops/models.py:15
 msgid "магазины"
-msgstr "shops"
+msgstr ""
 
 #: shops/models.py:18
 msgid "название"
-msgstr "name"
+msgstr ""
 
 #: shops/models.py:23
 msgid "товары в магазине"
-msgstr "products in shop"
+msgstr ""
 
 #: shops/models.py:26
 msgid "адресс"
@@ -331,27 +306,23 @@ msgstr ""
 
 #: shops/models.py:38
 msgid "предложение"
-msgstr "offer"
+msgstr ""
 
 #: shops/models.py:39
 msgid "предложения"
-msgstr "offers"
+msgstr ""
 
 #: shops/models.py:44
 msgid "остаток"
 msgstr ""
 
 #: shops/models.py:51
-#, fuzzy
-#| msgid "предложение"
 msgid "ограниченное предложение"
-msgstr "offer"
+msgstr ""
 
 #: shops/models.py:52
-#, fuzzy
-#| msgid "предложения"
 msgid "ограниченные предложения"
-msgstr "offers"
+msgstr ""
 
 #: shops/models.py:57
 msgid "старая цена"
@@ -394,10 +365,5 @@ msgid "изображение баннера"
 msgstr ""
 
 #: sliders/models.py:42
-#, fuzzy
-#| msgid "цена"
 msgid "цена от"
-msgstr "price"
-
-#~ msgid "свойства"
-#~ msgstr "details"
+msgstr ""
