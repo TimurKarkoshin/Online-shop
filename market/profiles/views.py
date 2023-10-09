@@ -95,11 +95,17 @@ class ProfileLogoutView(LogoutView):
     next_page = reverse_lazy("profiles:login")
 
 
+class ProfileView(LoginRequiredMixin, TemplateView):
+    template_name = "profiles/profile_form.jinja2"
+    queryset = User.objects.select_related("first_name", "last_name")
+    context_object_name = "account"
+
+
 class ProfileDetailView(LoginRequiredMixin, TemplateView):
     """Представление для редактирования страницы личного кабинета пользователя"""
 
     model = User
-    template_name = "profiles/profile.jinja2"
+    template_name = "profiles/profile_update_form.jinja2"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -115,21 +121,29 @@ class ProfileDetailView(LoginRequiredMixin, TemplateView):
 
     def post(self, request: HttpRequest) -> HttpResponse:
         form = UserForm(instance=self.request.user, data=request.POST, files=request.FILES)
-        print(request.POST)
-        print(request.FILES)
         if form.is_valid():
             with transaction.atomic():
-                avatar = form.cleaned_data.get("avatar")
+                avatar = request.FILES.get("avatar")
                 phone = form.cleaned_data.get("phone")
-                if avatar != "":
-                    Profile.objects.filter(user=self.request.user).update(
-                        avatar=avatar,
-                        phone=phone,
-                    )
+
+                profile = self.request.user.profile
+                if avatar:
+                    profile.avatar = avatar
+                profile.phone = phone
+                profile.save()
+
                 form.save()
-                messages.success(request, _("Данные успешно обновлены"))
-                return redirect("profiles:profile")
+                messages.success(request, _("Профиль успешно обновлен"))
+
+            password1 = form.cleaned_data.get("password1")
+            password2 = form.cleaned_data.get("password2")
+
+            if password1 is not None:
+                if password1 == password2:
+                    return render(request, "profiles/password-reset-form.jinja2")
+                else:
+                    messages.error(request, _("Пароли не совпадают"))
         else:
             print(form.errors)
         context = self.get_context_data()
-        return render(request, "profiles/profile.jinja2", context=context)
+        return render(request, "profiles/profile_update_form.jinja2", context=context)

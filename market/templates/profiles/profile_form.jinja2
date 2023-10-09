@@ -1,0 +1,63 @@
+{% extends "general/base.jinja2" %}
+
+{% block title %}
+    Страница редактирования профиля
+{% endblock %}
+
+{% block content %}
+{% if request.user.is_authenticated %}
+
+    <div class="Middle Middle_top">
+            <div class="Section Section_column Section_columnLeft">
+                <div class="wrap">
+                    <div class="Section-column">
+                        <div class="Section-columnSection">
+                            <header class="Section-header">
+                                <strong class="Section-title">Навигация
+                                </strong>
+                            </header>
+                            <div class="Section-columnContent">
+                                <div class="NavigateProfile">
+                                    <ul class="menu menu_vt">
+                                        <li class="menu-item"><a class="menu-link" href="{% url 'profiles:account' %}">Личный кабинет</a>
+                                        </li>
+                                        <li class="menu-item_ACTIVE menu-item"><a class="menu-link" href="{% url 'profiles:profile' %}">Профиль</a>
+                                        </li>
+                                        <li class="menu-item"><a class="menu-link" href="{% url 'order:history' %}">История заказов</a>
+                                        </li>
+                                        <li class="menu-item"><a class="menu-link" href="{% url 'history:view_history' %}">История просмотров</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Section-content">
+                        <div class="Account">
+                            <div class="Account-group">
+                                <div class="Account-column">
+                                    <div class="Account-avatar"><img src="{{ user.profile.avatar.url }}" alt="{{ user.profile.avatar.name }}">
+                                    </div>
+                                </div>
+                                <div class="Account-column">
+                                    <div class="Account-name">{{ user.get_full_name }}
+                                    </div><a class="Account-editLink" href="{% url 'profiles:profile' %}">Редактировать профиль</a>
+                                </div>
+                            </div>
+                            <div class="Account-group">
+                                <div class="Account-column Account-column_full" action="{% url 'profiles:account' %}">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <h2>Пользователь не авторизован</h2>
+        <div class="Account-group">
+            <div class="Account-login" action="{% url 'profiles:login' %}">
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

@@ -2698,7 +2698,7 @@ a {
 
 @media screen and (min-width: 990px) {
     a:hover {
-        
+
         border-bottom: 1px solid #0063d1;
         transition: border 0.4s;
     }

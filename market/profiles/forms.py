@@ -3,10 +3,9 @@ from django.contrib.auth import authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User, Group
 from django.core.exceptions import ObjectDoesNotExist, ValidationError
-from django.core.validators import RegexValidator
 from django.utils.translation import gettext_lazy as _
 
-from profiles.models import avatar_upload_path
+from profiles.models import regex_phone
 
 
 class RegisterUserForm(UserCreationForm):
@@ -73,89 +72,53 @@ class UserForm(forms.ModelForm):
     Форма обновления данных профиля пользователя
     """
 
-    regex_phone = RegexValidator(
-        regex=r"^((8|\+7|)(\d{10}))$", message=_("Формат номера телефона должен быть: +79999999999 или 89999999999")
-    )
-
     class Meta:
         model = User
         fields = ["first_name", "last_name", "email"]
         widgets = {
-            "first_name": forms.TextInput(
-                attrs={
-                    "class": "form-input",
-                    "value": "",
-                    "type": "text",
-                    "data-validate": "require",
-                    "placeholder": "Имя",
-                }
-            ),
-            "last_name": forms.TextInput(
-                attrs={
-                    "class": "form-input",
-                    "value": "",
-                    "type": "text",
-                    "data-validate": "require",
-                    "placeholder": "Фамилия",
-                }
-            ),
-            "email": forms.EmailInput(
-                attrs={
-                    "class": "form-input",
-                    "name": "mail",
-                    "type": "text",
-                    "value": "send@test.test",
-                    "data-validate": "require",
-                }
-            ),
+            "first_name": forms.TextInput(attrs={"class": "form-input",
+                                                 "type": "text",
+                                                 "data-validate": "require",
+                                                 "placeholder": "Имя"
+                                                 }),
+            "last_name": forms.TextInput(attrs={"class": "form-input",
+                                                "type": "text",
+                                                "data-validate": "require",
+                                                "placeholder": "Фамилия"
+                                                }),
+            "email": forms.EmailInput(attrs={"class": "form-input",
+                                             "name": "email",
+                                             "type": "text",
+                                             "value": "send@test.test",
+                                             "data-validate": "require"
+                                             }),
         }
 
     avatar = forms.ImageField(
-        widget=forms.FileInput(
-            attrs={
-                "name": "avatar",
-                "data-validate": "onlyImgAvatar",
-                "url_to_upload": avatar_upload_path,
-            }
-        ),
-        required=False,
-    )
+        widget=forms.FileInput(attrs={"name": "avatar",
+                                      "data-validate": "onlyImgAvatar",
+                                      }), required=False, allow_empty_file=True)
 
     phone = forms.CharField(
-        widget=forms.TextInput(
-            attrs={
-                "class": "form-input",
-                "name": "phone",
-                "type": "text",
-                "value": "+70000000000",
-                "data-validate": [regex_phone],
-            }
-        ),
-        required=False,
-    )
+        widget=forms.TextInput(attrs={"class": "form-input",
+                                      "name": "phone",
+                                      "type": "text",
+                                      "value": "+70000000000",
+                                      "data-validate": [regex_phone],
+                                      }), required=False)
     password1 = forms.CharField(
-        widget=forms.PasswordInput(
-            attrs={
-                "class": "form-input",
-                "name": "password1",
-                "type": "password",
-                "placeholder": "Тут можно изменить пароль",
-            }
-        ),
-        required=False,
-    )
+        widget=forms.PasswordInput(attrs={"class": "form-input",
+                                          "name": "password1",
+                                          "type": "password",
+                                          "placeholder": "Тут можно изменить пароль",
+                                          }), required=False, max_length=100)
 
     password2 = forms.CharField(
-        widget=forms.PasswordInput(
-            attrs={
-                "class": "form-input",
-                "name": "password",
-                "type": "password",
-                "placeholder": "Введите пароль повторно",
-            }
-        ),
-        required=False,
-    )
+        widget=forms.PasswordInput(attrs={"class": "form-input",
+                                          "name": "password2",
+                                          "type": "password",
+                                          "placeholder": "Введите пароль повторно",
+                                          }), required=False, max_length=100)
 
     def clean_email(self):
         """Проверка email на уникальность"""
