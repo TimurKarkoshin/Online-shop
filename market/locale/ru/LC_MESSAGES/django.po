@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-03 21:21+0000\n"
+"POT-Creation-Date: 2023-10-15 18:52+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,6 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
+
 #: basket/models.py:12
 msgid "корзина пользователя"
 msgstr ""
@@ -35,7 +36,7 @@ msgstr ""
 msgid "продукт магазина"
 msgstr ""
 
-#: basket/models.py:30 order/models.py:94
+#: basket/models.py:30 order/models.py:92
 msgid "количество"
 msgstr ""
 
@@ -68,11 +69,11 @@ msgstr ""
 msgid "дата публикации"
 msgstr ""
 
-#: config/settings.py:187
+#: config/settings.py:193
 msgid "English"
 msgstr ""
 
-#: config/settings.py:187
+#: config/settings.py:193
 msgid "Russian"
 msgstr ""
 
@@ -104,11 +105,11 @@ msgstr ""
 msgid "Введите адрес доставки"
 msgstr ""
 
-#: order/models.py:12 profiles/forms.py:77 profiles/models.py:17
+#: order/models.py:12 profiles/models.py:14
 msgid "Формат номера телефона должен быть: +79999999999 или 89999999999"
 msgstr ""
 
-#: order/models.py:16 order/models.py:92
+#: order/models.py:16 order/models.py:90
 msgid "заказ"
 msgstr ""
 
@@ -128,15 +129,15 @@ msgstr ""
 msgid "email"
 msgstr ""
 
-#: order/models.py:23 profiles/models.py:27
+#: order/models.py:23 profiles/models.py:28
 msgid "номер телефона"
 msgstr ""
 
-#: order/models.py:25 order/models.py:89
+#: order/models.py:25 order/models.py:87
 msgid "продукты в заказе"
 msgstr ""
 
-#: order/models.py:27
+#: order/models.py:27 order/models.py:35
 msgid "статус заказа"
 msgstr ""
 
@@ -144,48 +145,56 @@ msgstr ""
 msgid "доставка"
 msgstr ""
 
-#: order/models.py:39
+#: order/models.py:36
+msgid "статусы заказов"
+msgstr ""
+
+#: order/models.py:38
 msgid "название статуса"
 msgstr ""
 
-#: order/models.py:65
+#: order/models.py:55
+msgid "Онлайн картой"
+msgstr ""
+
+#: order/models.py:56 order/views.py:100
+msgid "Онлайн со случайного счета"
+msgstr ""
+
+#: order/models.py:63
 msgid "доставка заказа"
 msgstr ""
 
-#: order/models.py:66
+#: order/models.py:64
 msgid "доставки заказов"
 msgstr ""
 
-#: order/models.py:72
+#: order/models.py:70
 msgid "тип доставки"
 msgstr ""
 
-#: order/models.py:74
+#: order/models.py:72
 msgid "город доставки"
 msgstr ""
 
-#: order/models.py:75
+#: order/models.py:73
 msgid "адрес доставки"
 msgstr ""
 
-#: order/models.py:80
+#: order/models.py:78
 msgid "тип оплаты"
 msgstr ""
 
-#: order/models.py:88 order/models.py:91
+#: order/models.py:86 order/models.py:89
 msgid "продукт в заказе"
 msgstr ""
 
-#: order/models.py:93 shops/models.py:43
+#: order/models.py:91 shops/models.py:43
 msgid "цена"
 msgstr ""
 
-#: order/services/make_order.py:119 order/views.py:84 order/views.py:146
+#: order/services/make_order.py:119 order/views.py:84 order/views.py:148
 msgid "Экспресс доставка"
-msgstr ""
-
-#: order/views.py:100
-msgid "Онлайн со случайного счета"
 msgstr ""
 
 #: products/models.py:10 products/models.py:29 products/models.py:54
@@ -240,36 +249,64 @@ msgstr ""
 msgid "значение"
 msgstr ""
 
-#: profiles/forms.py:33 profiles/forms.py:166
+#: products/views.py:92
+msgid "Файл успешно загружен."
+msgstr ""
+
+#: profiles/forms.py:32 profiles/forms.py:129
 msgid "Такая почта уже зарегистрированная"
 msgstr ""
 
-#: profiles/forms.py:47
+#: profiles/forms.py:46
 msgid "Вы ввели не корректные данные."
 msgstr ""
 
-#: profiles/models.py:22
-msgid "профиль"
+#: profiles/forms.py:82
+msgid "Имя"
+msgstr ""
+
+#: profiles/forms.py:87
+msgid "Фамилия"
+msgstr ""
+
+#: profiles/forms.py:113
+msgid "Тут можно изменить пароль"
+msgstr ""
+
+#: profiles/forms.py:120
+msgid "Введите пароль повторно"
 msgstr ""
 
 #: profiles/models.py:23
+msgid "профиль"
+msgstr ""
+
+#: profiles/models.py:24
 msgid "профили"
 msgstr ""
 
-#: profiles/models.py:26
+#: profiles/models.py:27
 msgid "адрес"
 msgstr ""
 
-#: profiles/models.py:28
+#: profiles/models.py:29
 msgid "баланс аккаунта"
 msgstr ""
 
-#: profiles/models.py:29
+#: profiles/models.py:30
 msgid "аватарка"
 msgstr ""
 
-#: profiles/views.py:130
-msgid "Данные успешно обновлены"
+#: profiles/views.py:129
+msgid "Размер файла не должен превышать 2Мб"
+msgstr ""
+
+#: profiles/views.py:137
+msgid "Профиль успешно обновлен"
+msgstr ""
+
+#: profiles/views.py:146
+msgid "Пароли не совпадают"
 msgstr ""
 
 #: shops/forms.py:24

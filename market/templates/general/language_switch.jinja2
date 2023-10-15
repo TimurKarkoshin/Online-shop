@@ -1,4 +1,6 @@
-  <div class="LanguageSwitch">
+{% load i18n %}
+<div class="row-block">
+    <div class="LanguageSwitch">
         <form action="{% url 'set_language' %}" method="post">
             {% csrf_token %}
             <input name="next" type="hidden" value="{{ redirect_to }}">
@@ -15,3 +17,4 @@
             <input type="submit" value="Go">
         </form>
     </div>
+</div>

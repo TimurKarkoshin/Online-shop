@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-03 20:25+0000\n"
+"POT-Creation-Date: 2023-10-15 18:52+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,45 +20,39 @@ msgstr ""
 
 #: basket/models.py:12
 msgid "корзина пользователя"
-msgstr ""
+msgstr "user's cart"
 
 #: basket/models.py:17
 msgid "пользователь корзины"
-msgstr ""
+msgstr "shopping cart user"
 
 #: basket/models.py:23
-#, fuzzy
-#| msgid "предложения"
 msgid "предложения магазинов"
-msgstr "offers"
+msgstr "store offers"
 
 #: basket/models.py:27
-#, fuzzy
-#| msgid "товары в магазине"
 msgid "продукт магазина"
-msgstr "products in shop"
+msgstr "product"
 
-#: basket/models.py:30 order/models.py:94
-#, fuzzy
-#| msgid "свойство"
+#: basket/models.py:30 order/models.py:92
 msgid "количество"
-msgstr "detail"
+msgstr "count"
 
 #: comments/forms.py:19
 msgid "Отзыв должен иметь минимум 2 слова."
-msgstr ""
+msgstr "The review must have at least 2 words."
 
 #: comments/models.py:16
 msgid "отзыв"
-msgstr ""
+msgstr "review"
 
 #: comments/models.py:17
 msgid "отзывы"
-msgstr ""
+msgstr "reviews"
 
 #: comments/models.py:19 history/models.py:10 order/models.py:19
 msgid "пользователь"
-msgstr ""
+msgstr "user"
 
 #: comments/models.py:20 products/models.py:26 shops/models.py:55
 #: sliders/models.py:23
@@ -67,159 +61,155 @@ msgstr "product"
 
 #: comments/models.py:21
 msgid "текст отзыва"
-msgstr ""
+msgstr "review text"
 
 #: comments/models.py:22
 msgid "дата публикации"
-msgstr ""
+msgstr "publication date"
 
-#: config/settings.py:187
+#: config/settings.py:193
 msgid "English"
-msgstr ""
+msgstr "English"
 
-#: config/settings.py:187
+#: config/settings.py:193
 msgid "Russian"
-msgstr ""
+msgstr "Russian"
 
 #: history/models.py:12
-#, fuzzy
-#| msgid "товары в магазине"
 msgid "товары в истории"
-msgstr "products in shop"
+msgstr "product history"
 
 #: history/models.py:17
 msgid "история просмотров"
-msgstr ""
+msgstr "viewing history"
 
 #: order/forms.py:13
 msgid "Введите имя, фамилию и отчество"
-msgstr ""
+msgstr "Enter your full name"
 
 #: order/forms.py:20
 msgid "Введите телефон"
-msgstr ""
+msgstr "Enter your phone"
 
 #: order/forms.py:27
 msgid "Введите почту"
-msgstr ""
+msgstr "Enter your email"
 
 #: order/forms.py:44
 msgid "Введите город доставки"
-msgstr ""
+msgstr "Enter delivery city"
 
 #: order/forms.py:51
 msgid "Введите адрес доставки"
-msgstr ""
+msgstr "Enter delivery address"
 
-#: order/models.py:12 profiles/forms.py:77 profiles/models.py:17
+#: order/models.py:12 profiles/models.py:14
 msgid "Формат номера телефона должен быть: +79999999999 или 89999999999"
-msgstr ""
+msgstr "The phone number format must be: +79999999999 or 89999999999"
 
-#: order/models.py:16 order/models.py:92
+#: order/models.py:16 order/models.py:90
 msgid "заказ"
-msgstr ""
+msgstr "order"
 
 #: order/models.py:17
 msgid "заказы"
-msgstr ""
+msgstr "orders"
 
 #: order/models.py:20
 msgid "ФИО заказчика"
-msgstr ""
+msgstr "Customer's full name"
 
 #: order/models.py:21 products/models.py:34
-#, fuzzy
-#| msgid "предложения"
 msgid "дата добавления"
-msgstr "offers"
+msgstr "date added"
 
 #: order/models.py:22
 msgid "email"
-msgstr ""
+msgstr "email"
 
-#: order/models.py:23 profiles/models.py:27
+#: order/models.py:23 profiles/models.py:28
 msgid "номер телефона"
-msgstr ""
+msgstr "phone number"
 
-#: order/models.py:25 order/models.py:89
-#, fuzzy
-#| msgid "товары в магазине"
+#: order/models.py:25 order/models.py:87
 msgid "продукты в заказе"
-msgstr "products in shop"
+msgstr "products in order"
 
-#: order/models.py:27
+#: order/models.py:27 order/models.py:35
 msgid "статус заказа"
-msgstr ""
+msgstr "order status"
 
 #: order/models.py:28
 msgid "доставка"
-msgstr ""
+msgstr "delivery"
 
-#: order/models.py:39
-#, fuzzy
-#| msgid "название"
+#: order/models.py:36
+msgid "статусы заказов"
+msgstr "order statuses"
+
+#: order/models.py:38
 msgid "название статуса"
-msgstr "name"
+msgstr "status name"
 
-#: order/models.py:65
+#: order/models.py:55
+msgid "Онлайн картой"
+msgstr "Online card"
+
+#: order/models.py:56 order/views.py:100
+msgid "Онлайн со случайного счета"
+msgstr "Online from a random account"
+
+#: order/models.py:63
 msgid "доставка заказа"
-msgstr ""
+msgstr "order delivery"
 
-#: order/models.py:66
+#: order/models.py:64
 msgid "доставки заказов"
-msgstr ""
+msgstr "delivery of orders"
+
+#: order/models.py:70
+msgid "тип доставки"
+msgstr "type of delivery"
 
 #: order/models.py:72
-msgid "тип доставки"
-msgstr ""
-
-#: order/models.py:74
 msgid "город доставки"
-msgstr ""
+msgstr "city of delivery"
 
-#: order/models.py:75
+#: order/models.py:73
 msgid "адрес доставки"
-msgstr ""
+msgstr "delivery address"
 
-#: order/models.py:80
+#: order/models.py:78
 msgid "тип оплаты"
-msgstr ""
+msgstr "type of payment"
 
-#: order/models.py:88 order/models.py:91
-#, fuzzy
-#| msgid "продукт"
+#: order/models.py:86 order/models.py:89
 msgid "продукт в заказе"
-msgstr "product"
+msgstr "product in order"
 
-#: order/models.py:93 shops/models.py:43
+#: order/models.py:91 shops/models.py:43
 msgid "цена"
 msgstr "price"
 
-#: order/services/make_order.py:119 order/views.py:84 order/views.py:146
+#: order/services/make_order.py:119 order/views.py:84 order/views.py:148
 msgid "Экспресс доставка"
-msgstr ""
-
-#: order/views.py:100
-msgid "Онлайн со случайного счета"
-msgstr ""
+msgstr "Express delivery"
 
 #: products/models.py:10 products/models.py:29 products/models.py:54
 msgid "наименование"
 msgstr "name"
 
 #: products/models.py:11 products/models.py:31 sliders/models.py:22
-#, fuzzy
-#| msgid "название"
 msgid "описание"
-msgstr "name"
+msgstr "description"
 
 #: products/models.py:15 products/models.py:36 sliders/models.py:39
 msgid "категория"
-msgstr ""
+msgstr "category"
 
 #: products/models.py:16
 msgid "категории"
-msgstr ""
+msgstr "categories"
 
 #: products/models.py:27
 msgid "продукты"
@@ -227,79 +217,99 @@ msgstr "products"
 
 #: products/models.py:30 products/models.py:52
 msgid "характеристики"
-msgstr "details"
+msgstr "characteristics"
 
 #: products/models.py:38
 msgid "ограниченный тираж"
-msgstr ""
+msgstr "limited edition"
 
 #: products/models.py:51
-#, fuzzy
-#| msgid "характеристики"
 msgid "характеристика"
-msgstr "details"
+msgstr "characteristic"
 
 #: products/models.py:64
-#, fuzzy
-#| msgid "свойство продукта"
 msgid "изображение продукта"
-msgstr "product detail"
+msgstr "product image"
 
 #: products/models.py:65
-#, fuzzy
-#| msgid "свойство продукта"
 msgid "изображения продукта"
-msgstr "product detail"
+msgstr "product images"
 
 #: products/models.py:78
 msgid "свойство продукта"
-msgstr "product detail"
+msgstr "product property"
 
 #: products/models.py:79
-#, fuzzy
-#| msgid "свойство продукта"
 msgid "свойства продукта"
-msgstr "product detail"
+msgstr "product property"
 
 #: products/models.py:83
 msgid "значение"
 msgstr "value"
 
-#: profiles/forms.py:33 profiles/forms.py:166
+#: products/views.py:92
+msgid "Файл успешно загружен."
+msgstr "Profile successfully updated"
+
+#: profiles/forms.py:32 profiles/forms.py:129
 msgid "Такая почта уже зарегистрированная"
-msgstr ""
+msgstr "This email is already registered"
 
-#: profiles/forms.py:47
+#: profiles/forms.py:46
 msgid "Вы ввели не корректные данные."
-msgstr ""
+msgstr "You entered incorrect data."
 
-#: profiles/models.py:22
-msgid "профиль"
-msgstr ""
+#: profiles/forms.py:82
+msgid "Имя"
+msgstr "First name"
+
+#: profiles/forms.py:87
+msgid "Фамилия"
+msgstr "Last name"
+
+#: profiles/forms.py:113
+msgid "Тут можно изменить пароль"
+msgstr "You can change your password here"
+
+#: profiles/forms.py:120
+msgid "Введите пароль повторно"
+msgstr "Please re-enter your password"
 
 #: profiles/models.py:23
+msgid "профиль"
+msgstr "profile"
+
+#: profiles/models.py:24
 msgid "профили"
-msgstr ""
+msgstr "profiles"
 
-#: profiles/models.py:26
+#: profiles/models.py:27
 msgid "адрес"
-msgstr ""
-
-#: profiles/models.py:28
-msgid "баланс аккаунта"
-msgstr ""
+msgstr "address"
 
 #: profiles/models.py:29
-msgid "аватарка"
-msgstr ""
+msgid "баланс аккаунта"
+msgstr "balance"
 
-#: profiles/views.py:130
-msgid "Данные успешно обновлены"
-msgstr ""
+#: profiles/models.py:30
+msgid "аватарка"
+msgstr "avatar"
+
+#: profiles/views.py:129
+msgid "Размер файла не должен превышать 2Мб"
+msgstr "The file size should not exceed 2MB"
+
+#: profiles/views.py:137
+msgid "Профиль успешно обновлен"
+msgstr "Profile successfully updated"
+
+#: profiles/views.py:146
+msgid "Пароли не совпадают"
+msgstr "The passwords do not match"
 
 #: shops/forms.py:24
 msgid "Ошибка формы фильтр, поле - цена"
-msgstr ""
+msgstr "Error form filter, field - price"
 
 #: shops/models.py:14
 msgid "магазин"
@@ -311,7 +321,7 @@ msgstr "shops"
 
 #: shops/models.py:18
 msgid "название"
-msgstr "name"
+msgstr "shop name"
 
 #: shops/models.py:23
 msgid "товары в магазине"
@@ -319,15 +329,15 @@ msgstr "products in shop"
 
 #: shops/models.py:26
 msgid "адресс"
-msgstr ""
+msgstr "address"
 
 #: shops/models.py:27
 msgid "почта"
-msgstr ""
+msgstr "mail"
 
 #: shops/models.py:28
 msgid "юридический адресс"
-msgstr ""
+msgstr "legal address"
 
 #: shops/models.py:38
 msgid "предложение"
@@ -339,65 +349,56 @@ msgstr "offers"
 
 #: shops/models.py:44
 msgid "остаток"
-msgstr ""
+msgstr "remainder"
 
 #: shops/models.py:51
-#, fuzzy
-#| msgid "предложение"
 msgid "ограниченное предложение"
-msgstr "offer"
+msgstr "limited offer"
 
 #: shops/models.py:52
-#, fuzzy
-#| msgid "предложения"
 msgid "ограниченные предложения"
-msgstr "offers"
+msgstr "limited offers"
 
 #: shops/models.py:57
 msgid "старая цена"
-msgstr ""
+msgstr "previous price"
 
 #: shops/models.py:58
 msgid "новая цена"
-msgstr ""
+msgstr "new price"
 
 #: sliders/models.py:18
 msgid "слайдер"
-msgstr ""
+msgstr "slider"
 
 #: sliders/models.py:19
 msgid "слайдеры"
-msgstr ""
+msgstr "sliders"
 
 #: sliders/models.py:21
 msgid "заголовок"
-msgstr ""
+msgstr "title"
 
 #: sliders/models.py:24
 msgid "изображение слайдера"
-msgstr ""
+msgstr "slider image"
 
 #: sliders/models.py:34
 msgid "баннер"
-msgstr ""
+msgstr "banner"
 
 #: sliders/models.py:35
 msgid "баннера"
-msgstr ""
+msgstr "banners"
 
 #: sliders/models.py:37
 msgid "название категории товаров"
-msgstr ""
+msgstr "product category name"
 
 #: sliders/models.py:41
 msgid "изображение баннера"
-msgstr ""
+msgstr "banner image"
 
 #: sliders/models.py:42
-#, fuzzy
-#| msgid "цена"
 msgid "цена от"
-msgstr "price"
-
-#~ msgid "свойства"
-#~ msgstr "details"
+msgstr "from"

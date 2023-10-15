@@ -97,7 +97,7 @@ class ProfileLogoutView(LogoutView):
 
 class ProfileView(LoginRequiredMixin, TemplateView):
     template_name = "profiles/profile_form.jinja2"
-    queryset = User.objects.select_related("first_name", "last_name")
+    queryset = User.objects.only("first_name", "last_name")
     context_object_name = "account"
 
 
@@ -125,7 +125,8 @@ class ProfileDetailView(LoginRequiredMixin, TemplateView):
             with transaction.atomic():
                 avatar = request.FILES.get("avatar")
                 phone = form.cleaned_data.get("phone")
-
+                if avatar.size > 1024 * 1024:
+                    return HttpResponse(_("Размер файла не должен превышать 2Мб"))
                 profile = self.request.user.profile
                 if avatar:
                     profile.avatar = avatar

@@ -76,49 +76,81 @@ class UserForm(forms.ModelForm):
         model = User
         fields = ["first_name", "last_name", "email"]
         widgets = {
-            "first_name": forms.TextInput(attrs={"class": "form-input",
-                                                 "type": "text",
-                                                 "data-validate": "require",
-                                                 "placeholder": "Имя"
-                                                 }),
-            "last_name": forms.TextInput(attrs={"class": "form-input",
-                                                "type": "text",
-                                                "data-validate": "require",
-                                                "placeholder": "Фамилия"
-                                                }),
-            "email": forms.EmailInput(attrs={"class": "form-input",
-                                             "name": "email",
-                                             "type": "text",
-                                             "value": "send@test.test",
-                                             "data-validate": "require"
-                                             }),
+            "first_name": forms.TextInput(
+                attrs={
+                    "class": "form-input",
+                    "type": "text",
+                    "data-validate": "require",
+                    "placeholder": _("Имя"),
+                }
+            ),
+            "last_name": forms.TextInput(
+                attrs={
+                    "class": "form-input",
+                    "type": "text",
+                    "data-validate": "require",
+                    "placeholder": _("Фамилия"),
+                }
+            ),
+            "email": forms.EmailInput(
+                attrs={
+                    "class": "form-input",
+                    "name": "email",
+                    "type": "text",
+                    "value": "send@test.test",
+                    "data-validate": "require",
+                }
+            ),
         }
 
     avatar = forms.ImageField(
-        widget=forms.FileInput(attrs={"name": "avatar",
-                                      "data-validate": "onlyImgAvatar",
-                                      }), required=False, allow_empty_file=True)
+        widget=forms.FileInput(
+            attrs={
+                "name": "avatar",
+                "data-validate": "onlyImgAvatar",
+            }
+        ),
+        required=False,
+        allow_empty_file=True,
+    )
 
     phone = forms.CharField(
-        widget=forms.TextInput(attrs={"class": "form-input",
-                                      "name": "phone",
-                                      "type": "text",
-                                      "value": "+70000000000",
-                                      "data-validate": [regex_phone],
-                                      }), required=False)
+        widget=forms.TextInput(
+            attrs={
+                "class": "form-input",
+                "name": "phone",
+                "type": "text",
+                "value": "+70000000000",
+                "data-validate": [regex_phone],
+            }
+        ),
+        required=False,
+    )
     password1 = forms.CharField(
-        widget=forms.PasswordInput(attrs={"class": "form-input",
-                                          "name": "password1",
-                                          "type": "password",
-                                          "placeholder": "Тут можно изменить пароль",
-                                          }), required=False, max_length=100)
+        widget=forms.PasswordInput(
+            attrs={
+                "class": "form-input",
+                "name": "password1",
+                "type": "password",
+                "placeholder": _("Тут можно изменить пароль"),
+            }
+        ),
+        required=False,
+        max_length=100,
+    )
 
     password2 = forms.CharField(
-        widget=forms.PasswordInput(attrs={"class": "form-input",
-                                          "name": "password2",
-                                          "type": "password",
-                                          "placeholder": "Введите пароль повторно",
-                                          }), required=False, max_length=100)
+        widget=forms.PasswordInput(
+            attrs={
+                "class": "form-input",
+                "name": "password2",
+                "type": "password",
+                "placeholder": _("Введите пароль повторно"),
+            }
+        ),
+        required=False,
+        max_length=100,
+    )
 
     def clean_email(self):
         """Проверка email на уникальность"""

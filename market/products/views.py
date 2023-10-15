@@ -4,6 +4,7 @@ from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.urls import reverse, reverse_lazy
 from django.db.models import Min
 from django.views.generic import DetailView
+from django.utils.translation import gettext_lazy as _
 from django.views.generic.edit import FormMixin, FormView
 from shops.models import (
     Offer,
@@ -88,7 +89,7 @@ class UploadFileView(PermissionRequiredMixin, FormView):
 
     def form_valid(self, form):
         form.save()
-        self.success_message = "Файл успешно загружен."
+        self.success_message = _("Файл успешно загружен.")
 
         etl_task.delay()
         return super().form_valid(form)

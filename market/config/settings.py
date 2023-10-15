@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os
 from pathlib import Path
+
+from django_jinja.builtins import DEFAULT_EXTENSIONS
 from dotenv import dotenv_values
 from setting_constance.setting_constance import *  # noqa
 
@@ -100,6 +102,10 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+            ],
+            "extensions": DEFAULT_EXTENSIONS
+            + [
+                "jinja2.ext.i18n",
             ],
         },
     },
