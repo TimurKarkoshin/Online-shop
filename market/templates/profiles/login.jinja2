@@ -1,7 +1,9 @@
 {% extends "general/base.jinja2" %}
-{% load static %}
+{% load static i18n %}
 
-{% block title %}Страница авторизации{% endblock %}
+{% block title %}
+    {% translate 'Страница авторизации' %}
+{% endblock %}
 
 <body class="Site">
 {% block body %}
@@ -28,8 +30,8 @@
                         </div>
                         <nav class="row-block">
                             <div class="row ControlPanel-rowSplit">
-                                <div class="row-block"><a class="ControlPanel-title" href="">Вход</a>
-                                    <a class="ControlPanel-title" href="">Регистрация</a>
+                                <div class="row-block"><a class="ControlPanel-title" href="">{% translate 'Вход' %}</a>
+                                    <a class="ControlPanel-title" href="">{% translate 'Регистрация' %}</a>
                                 </div>
                             </div>
                         </nav>

@@ -1,15 +1,14 @@
 {% extends "profiles/login.jinja2" %}
-{% load static %}
-{% load i18n %}
+{% load static i18n %}
 
 {% block title %}
-    Страница регистрации пользователя
+    {% translate 'Страница регистрации пользователя' %}
 {% endblock %}
 
 {% block content %}
         <div class="wrapper">
             <div class="header">
-                <h3 class="sign-in">Регистрация</h3>
+                <h3 class="sign-in">{% translate 'Регистрация' %}</h3>
 
             </div>
             <div class="clear"></div>
@@ -18,7 +17,7 @@
                 {% csrf_token %}
 
                 <div>
-                    <input class="user-input" type="text" name="username" id="name" placeholder="Имя" />
+                    <input class="user-input" type="text" name="username" id="name" placeholder="{% translate 'Имя' %}" />
                     {{ form.username.errors }}
                 </div>
                 <div>
@@ -27,12 +26,12 @@
                 </div>
                 <div>
 
-                    <input type="password" name="password1" id="name" placeholder="Пароль" />
+                    <input type="password" name="password1" id="name" placeholder="{% translate 'Пароль' %}" />
                     {{ form.password1.errors }}
                 </div>
                 <div>
 
-                    <input type="password" name="password2" id="name" placeholder="Повторите пароль" />
+                    <input type="password" name="password2" id="name" placeholder="{% translate 'Повторите пароль' %}" />
                     {{ form.password1.errors }}
                 </div>
                 <div class="user-input">
@@ -40,7 +39,7 @@
                     {{ form.group.errors }}
                 </div>
 
-                <input type="submit" value="Зарегистрироваться" />
+                <input type="submit" value="{% translate 'Зарегистрироваться' %}" />
                 <a class="registr" href="{% url 'profiles:login' %}">
                     Вход
                 </a>

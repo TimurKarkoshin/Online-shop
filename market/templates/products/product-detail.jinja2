@@ -106,7 +106,7 @@
                                 <span>{% translate "Характеристика" %}</span>
                             </a>
                             <a class="Tabs-link" href="#reviews">
-                                <span>{% translate "Отзывы ({{ comment_count }})" %}</span>
+                                <span>{% translate "Отзывы " %}({{ comment_count }})</span>
                             </a>
                         </div>
                         <div class="Tabs-wrap">
@@ -197,7 +197,7 @@
                                                                 </div>
                                                                 <div class="Order-infoContent">
                                                                     <span class="Order-price">
-                                                                         {% translate "{{offer.remainder}} шт." %}
+                                                                         {{offer.remainder}}{% translate " шт." %}
                                                                     </span>
                                                                 </div>
                                                             </div>
@@ -228,7 +228,7 @@
                             <div class="Tabs-block" id="reviews">
                                 <header class="Section-header">
                                     <h3 class="Section-title">
-                                        {% translate "{{ comment_count }} отзывов" %}
+                                        {{ comment_count }} {% translate "отзывов" %}
                                 </header>
                                 <div class="Comments">
                                     {% for comment in comments_list %}

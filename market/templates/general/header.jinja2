@@ -1,5 +1,4 @@
-{% load static %}
-{% load i18n %}
+{% load static i18n %}
 
 <div class="ControlPanel">
     <div class="wrap">
@@ -28,7 +27,9 @@
           <nav class="row-block">
             <div class="row ControlPanel-rowSplit">
               <div class="row-block">
-                  <a class="ControlPanel-title" href="#">{% translate "Язык" %}</a>
+                  {% block language %}
+                      {% include 'general/language_switch.jinja2' %}
+                  {% endblock %}
                   <a class="ControlPanel-title" href="{% url 'profiles:login' %}">{% translate "Вход" %}</a>
                   <a class="ControlPanel-title" href="{% url 'profiles:registration_user' %}">{% translate "Регистрация" %}</a>
                   <a class="ControlPanel-title" href="{% url 'profiles:logout' %}">{% translate "Выход" %}</a>

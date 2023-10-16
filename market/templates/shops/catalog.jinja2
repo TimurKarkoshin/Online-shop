@@ -4,7 +4,7 @@
 {% load i18n %}
 
 {% block title %}
-    Страница каталога товаров.
+    {% translate 'Страница каталога товаров.' %}
 {% endblock %}
 
 {% block content %}
@@ -14,7 +14,7 @@
                 <div class="Section-column">
                     <div class="Section-columnSection">
                         <header class="Section-header">
-                            <strong class="Section-title">Фильтр
+                            <strong class="Section-title">{% translate 'Фильтр' %}
                             </strong>
                         </header>
                         <div class="Section-columnContent">
@@ -25,14 +25,14 @@
                                     <div>{{ form.price.errors }}</div>
                                     <div class="range Section-columnRange">
                                         <input class="range-line" id="price" name="price" type="text" data-type="double" data-min="5" data-max="50000" data-from="500" data-to="3000" />
-                                        <div class="range-price">Цена:&#32;
+                                        <div class="range-price">{% translate 'Цена:' %}&#32;
                                             <div class="rangePrice">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-input form-input_full" id="title" name="title" type="text" placeholder="Название" />
+                                    <input class="form-input form-input_full" id="title" name="title" type="text" placeholder="{% translate 'Название' %}" />
                                 </div>
                                 <div class="form-group">
                                     <!-- - var options = setOptions(items, ['value', 'selected', 'disabled']);-->
@@ -40,17 +40,17 @@
                                 <div class="form-group">
                                     <label class="toggle">
                                         <input type="checkbox" name="available" /><span class="toggle-box"></span>
-                                        <span class="toggle-text">Только товары в наличии</span>
+                                        <span class="toggle-text">{% translate 'Только товары в наличии' %}</span>
                                     </label>
                                 </div>
                                 <div class="form-group">
                                     <label class="toggle">
                                         <input type="checkbox" name="delivery" /><span class="toggle-box"></span>
-                                        <span class="toggle-text">С бесплатной доставкой</span>
+                                        <span class="toggle-text">{% translate 'С бесплатной доставкой' %}</span>
                                     </label>
                                 </div>
                                 <div class="form-group">
-                                    <div class="buttons"><input type="submit" class="btn btn_square btn_dark btn_narrow" value="Фильтр" />
+                                    <div class="buttons"><input type="submit" class="btn btn_square btn_dark btn_narrow" value="{% translate 'Фильтр' %}" />
                                     </div>
                                 </div>
                             </form>
@@ -59,36 +59,36 @@
                     </div>
                     <div class="Section-columnSection">
                         <header class="Section-header">
-                            <strong class="Section-title">Популярные тэги
+                            <strong class="Section-title">{% translate 'Популярные тэги' %}
                             </strong>
                         </header>
                         <div class="Section-columnContent">
                             <div class="buttons">
-                                <a class="btn btn_default btn_sm" href="#">Видео</a>
-                                <a class="btn btn_default btn_sm" href="#">Разработка</a>
-                                <a class="btn btn_default btn_sm" href="#">Игры</a>
-                                <a class="btn btn_default btn_sm" href="#">Asus</a>
-                                <a class="btn btn_default btn_sm" href="#">Разработка</a>
-                                <a class="btn btn_default btn_sm" href="#">Видео</a>
+                                <a class="btn btn_default btn_sm" href="#">{% translate 'Видео' %}</a>
+                                <a class="btn btn_default btn_sm" href="#">{% translate 'Разработка' %}</a>
+                                <a class="btn btn_default btn_sm" href="#">{% translate 'Игры' %}</a>
+                                <a class="btn btn_default btn_sm" href="#">{% translate 'Asus' %}</a>
+                                <a class="btn btn_default btn_sm" href="#">{% translate 'Разработка' %}</a>
+                                <a class="btn btn_default btn_sm" href="#">{% translate 'Видео' %}</a>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="Section-content">
                     <div class="Sort">
-                        <div class="Sort-title">Сортировать по:</div>
+                        <div class="Sort-title">{% translate 'Сортировать по:' %}</div>
 
                         <div class="Sort-variants">
                             {% if not cat %}
-                                <a class="Sort-sortBy Sort-sortBy_dec" href="{% url 'shops:shops-catalog' sort='popular' %}">Популярности</a>
-                                <a class="Sort-sortBy" href="{% url 'shops:shops-catalog' sort='price' %}">Цене</a>
-                                <a class="Sort-sortBy" href="{% url 'shops:shops-catalog' sort='comments' %}">Отзывам</a>
-                                <a class="Sort-sortBy Sort-sortBy_inc" href="{% url 'shops:shops-catalog' sort='date' %}">Новизне</a>
+                                <a class="Sort-sortBy Sort-sortBy_dec" href="{% url 'shops:shops-catalog' sort='popular' %}">{% translate 'Популярности' %}</a>
+                                <a class="Sort-sortBy" href="{% url 'shops:shops-catalog' sort='price' %}">{% translate 'Цене' %}</a>
+                                <a class="Sort-sortBy" href="{% url 'shops:shops-catalog' sort='comments' %}">{% translate 'Отзывам' %}</a>
+                                <a class="Sort-sortBy Sort-sortBy_inc" href="{% url 'shops:shops-catalog' sort='date' %}">{% translate 'Новизне' %}</a>
                             {% else %}
-                                <a class="Sort-sortBy Sort-sortBy_dec" href="{% url 'shops:shops-catalog' cat=cat sort='popular' %}">Популярности</a>
-                                <a class="Sort-sortBy" href="{% url 'shops:shops-catalog' cat=cat sort='price' %}">Цене</a>
-                                <a class="Sort-sortBy" href="{% url 'shops:shops-catalog' cat=cat sort='comments' %}">Отзывам</a>
-                                <a class="Sort-sortBy Sort-sortBy_inc" href="{% url 'shops:shops-catalog' cat=cat sort='date' %}">Новизне</a>
+                                <a class="Sort-sortBy Sort-sortBy_dec" href="{% url 'shops:shops-catalog' cat=cat sort='popular' %}">{% translate 'Популярности' %}</a>
+                                <a class="Sort-sortBy" href="{% url 'shops:shops-catalog' cat=cat sort='price' %}">{% translate 'Цене' %}</a>
+                                <a class="Sort-sortBy" href="{% url 'shops:shops-catalog' cat=cat sort='comments' %}">{% translate 'Отзывам' %}</a>
+                                <a class="Sort-sortBy Sort-sortBy_inc" href="{% url 'shops:shops-catalog' cat=cat sort='date' %}">{% translate 'Новизне' %}</a>
                             {% endif %}
                         </div>
                     </div>

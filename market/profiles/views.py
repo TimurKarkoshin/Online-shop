@@ -1,3 +1,5 @@
+import logging
+
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -19,6 +21,8 @@ from django.views.generic import CreateView, FormView, TemplateView
 from config import settings
 from .forms import RegisterUserForm, EmailAuthenticationForm, UserForm
 from .models import Profile
+
+logger = logging.getLogger(__name__)
 
 
 class ResetPasswordView(PasswordResetView):
@@ -145,6 +149,6 @@ class ProfileDetailView(LoginRequiredMixin, TemplateView):
                 else:
                     messages.error(request, _("Пароли не совпадают"))
         else:
-            print(form.errors)
+            logger.info(form.errors)
         context = self.get_context_data()
         return render(request, "profiles/profile_update_form.jinja2", context=context)

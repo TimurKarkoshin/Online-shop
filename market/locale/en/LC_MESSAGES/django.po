@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-15 18:52+0000\n"
+"POT-Creation-Date: 2023-10-16 21:08+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,387 +18,849 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: basket/models.py:12
-msgid "корзина пользователя"
-msgstr "user's cart"
+#: templates/basket/basket-view.jinja2:5
+msgid "Корзина"
+msgstr "Basket"
 
-#: basket/models.py:17
-msgid "пользователь корзины"
-msgstr "shopping cart user"
+#: templates/basket/basket-view.jinja2:49
+msgid "Итого"
+msgstr "Total"
 
-#: basket/models.py:23
-msgid "предложения магазинов"
-msgstr "store offers"
+#: templates/basket/basket-view.jinja2:52
+msgid "Оформить заказ"
+msgstr "Place an order"
 
-#: basket/models.py:27
-msgid "продукт магазина"
-msgstr "product"
+#: templates/basket/basket-view.jinja2:56
+msgid "Ваша корзина пуста, скорее добавьте какой-либо товар!"
+msgstr "Your cart is empty, please add some items!"
 
-#: basket/models.py:30 order/models.py:92
-msgid "количество"
-msgstr "count"
+#: templates/general/base.jinja2:22
+msgid "Заголовок"
+msgstr "Header"
 
-#: comments/forms.py:19
-msgid "Отзыв должен иметь минимум 2 слова."
-msgstr "The review must have at least 2 words."
+#: templates/general/base.jinja2:45
+msgid "Ваш контент"
+msgstr "Your content"
 
-#: comments/models.py:16
-msgid "отзыв"
-msgstr "review"
+#: templates/general/categories-button-content.jinja2:11
+msgid "Все категории"
+msgstr "Categories"
 
-#: comments/models.py:17
-msgid "отзывы"
-msgstr "reviews"
+#: templates/general/categories-button-content.jinja2:60
+msgid "Поиск"
+msgstr "Search"
 
-#: comments/models.py:19 history/models.py:10 order/models.py:19
-msgid "пользователь"
-msgstr "user"
+#: templates/general/footer.jinja2:7
+msgid "здесь будет описание магазина"
+msgstr "store description will be here"
 
-#: comments/models.py:20 products/models.py:26 shops/models.py:55
-#: sliders/models.py:23
-msgid "продукт"
-msgstr "product"
+#: templates/general/header.jinja2:34 templates/profiles/login.jinja2:33
+msgid "Вход"
+msgstr "Log in"
 
-#: comments/models.py:21
-msgid "текст отзыва"
-msgstr "review text"
+#: templates/general/header.jinja2:35 templates/profiles/login.jinja2:34
+#: templates/profiles/registr.jinja2:11
+msgid "Регистрация"
+msgstr "Sign up"
 
-#: comments/models.py:22
-msgid "дата публикации"
-msgstr "publication date"
+#: templates/general/header.jinja2:36
+msgid "Выход"
+msgstr "Exit"
 
-#: config/settings.py:193
-msgid "English"
-msgstr "English"
+#: templates/general/header.jinja2:60
+msgid "Главная"
+msgstr "Main"
 
-#: config/settings.py:193
-msgid "Russian"
-msgstr "Russian"
+#: templates/general/header.jinja2:63
+msgid "Блог"
+msgstr "Blog"
 
-#: history/models.py:12
-msgid "товары в истории"
-msgstr "product history"
+#: templates/general/header.jinja2:65
+#: templates/order/payment/payment-progress.jinja2:14
+#: templates/order/payment/payment-someone.jinja2:14
+#: templates/order/payment/payment.jinja2:14
+msgid "Каталог"
+msgstr "Catalog"
 
-#: history/models.py:17
-msgid "история просмотров"
-msgstr "viewing history"
+#: templates/general/header.jinja2:68
+msgid "Покупка"
+msgstr "Purchase"
 
-#: order/forms.py:13
-msgid "Введите имя, фамилию и отчество"
+#: templates/general/header.jinja2:79
+msgid "Показать навигацию"
+msgstr "Show navigation"
+
+#: templates/general/language_switch.jinja2:4
+msgid "Язык"
+msgstr "Language"
+
+#: templates/history/view-histroy.jinja2:5
+#: templates/history/view-histroy.jinja2:26
+#: templates/order/history-orders.jinja2:25
+#: templates/profiles/profile_form.jinja2:30
+#: templates/profiles/profile_update_form.jinja2:28
+msgid "История просмотров"
+msgstr "Viewing history"
+
+#: templates/history/view-histroy.jinja2:14
+#: templates/order/history-orders.jinja2:13
+#: templates/profiles/profile_form.jinja2:18
+#: templates/profiles/profile_update_form.jinja2:16
+msgid "Навигация"
+msgstr "Navigation"
+
+#: templates/history/view-histroy.jinja2:20
+#: templates/order/history-orders.jinja2:19
+#: templates/profiles/profile_form.jinja2:24
+#: templates/profiles/profile_update_form.jinja2:22
+msgid "Личный кабинет"
+msgstr "Personal account"
+
+#: templates/history/view-histroy.jinja2:22
+#: templates/order/history-orders.jinja2:21
+#: templates/profiles/profile_form.jinja2:26
+#: templates/profiles/profile_update_form.jinja2:24
+msgid "Профиль"
+msgstr "Profile"
+
+#: templates/history/view-histroy.jinja2:24
+#: templates/order/history-orders.jinja2:4
+#: templates/order/history-orders.jinja2:23
+#: templates/profiles/profile_form.jinja2:28
+#: templates/profiles/profile_update_form.jinja2:26
+msgid "История заказов"
+msgstr "Order history"
+
+#: templates/main/index.jinja2:7
+msgid "Главная страница интернет магазина MEGAMO."
+msgstr "Home page of the MEGAMO online store."
+
+#: templates/main/index.jinja2:28
+msgid "Популярные товары"
+msgstr "Popular products"
+
+#: templates/main/section-columnDesktop-limited-product.jinja2:8
+msgid "ОГРАНИЧЕННЫЕ ПРЕДЛОЖЕНИЯ"
+msgstr "LIMITED OFFERS"
+
+#: templates/main/section-columnDesktop-limited-product.jinja2:32
+msgid "дни"
+msgstr "days"
+
+#: templates/main/section-columnDesktop-limited-product.jinja2:38
+msgid "часы"
+msgstr "hours"
+
+#: templates/main/section-columnDesktop-limited-product.jinja2:44
+msgid "мин."
+msgstr "min."
+
+#: templates/main/section-columnDesktop-limited-product.jinja2:50
+msgid "сек."
+msgstr "sec."
+
+#: templates/main/section-columnRight-limited-products.jinja2:10
+msgid "Ограниченный тираж"
+msgstr "Limited edition"
+
+#: templates/order/history-orders.jinja2:39
+#: templates/sliders/banners-section.jinja2:18
+msgid "от"
+msgstr "from"
+
+#: templates/order/history-orders.jinja2:43
+#: templates/order/make-order-step4.jinja2:64
+#: templates/order/one-order.jinja2:53
+#: templates/products/product-detail.jinja2:175
+msgid "Тип доставки:"
+msgstr "Type of delivery"
+
+#: templates/order/history-orders.jinja2:49
+#: templates/order/make-order-step4.jinja2:82
+#: templates/order/one-order.jinja2:71
+#: templates/products/product-detail.jinja2:181
+msgid "Оплата:"
+msgstr "Payment:"
+
+#: templates/order/history-orders.jinja2:55
+msgid "Общая стоимость:"
+msgstr "Total cost:"
+
+#: templates/order/history-orders.jinja2:61
+msgid "Статус"
+msgstr "Status"
+
+#: templates/order/make-order-step1.jinja2:4
+#: templates/order/make-order-step2.jinja2:4
+#: templates/order/make-order-step3.jinja2:4
+#: templates/order/make-order-step4.jinja2:4
+msgid "Создание заказа"
+msgstr "Create an order"
+
+#: templates/order/make-order-step1.jinja2:14
+#: templates/order/make-order-step2.jinja2:13
+#: templates/order/make-order-step3.jinja2:14
+#: templates/order/make-order-step4.jinja2:14
+msgid "Прогресс заполнения"
+msgstr "Filling progress"
+
+#: templates/order/make-order-step1.jinja2:20
+#: templates/order/make-order-step1.jinja2:39
+#: templates/order/make-order-step2.jinja2:19
+#: templates/order/make-order-step3.jinja2:20
+#: templates/order/make-order-step4.jinja2:20
+msgid "Шаг 1. Параметры пользователя"
+msgstr "Step 1: User Settings"
+
+#: templates/order/make-order-step1.jinja2:22
+#: templates/order/make-order-step2.jinja2:21
+#: templates/order/make-order-step2.jinja2:35
+#: templates/order/make-order-step3.jinja2:22
+#: templates/order/make-order-step4.jinja2:22
+msgid "Шаг 2. Способ доставки"
+msgstr "Step 2. Delivery method"
+
+#: templates/order/make-order-step1.jinja2:24
+#: templates/order/make-order-step2.jinja2:23
+#: templates/order/make-order-step3.jinja2:24
+#: templates/order/make-order-step3.jinja2:36
+#: templates/order/make-order-step4.jinja2:24
+msgid "Шаг 3. Способ оплаты"
+msgstr "Step 3. Payment method"
+
+#: templates/order/make-order-step1.jinja2:26
+#: templates/order/make-order-step2.jinja2:25
+#: templates/order/make-order-step3.jinja2:26
+#: templates/order/make-order-step4.jinja2:26
+#: templates/order/make-order-step4.jinja2:35
+msgid "Шаг 4. Подтверждение заказа"
+msgstr "Step 4. Order confirmation"
+
+#: templates/order/make-order-step1.jinja2:46
+msgid "Имя, фамилия и отчество заказчика"
 msgstr "Enter your full name"
 
-#: order/forms.py:20
-msgid "Введите телефон"
-msgstr "Enter your phone"
+#: templates/order/make-order-step1.jinja2:50
+#: templates/profiles/profile_update_form.jinja2:66
+msgid "Телефон"
+msgstr "Phone number"
 
-#: order/forms.py:27
-msgid "Введите почту"
-msgstr "Enter your email"
+#: templates/order/make-order-step1.jinja2:60
+#: templates/order/make-order-step2.jinja2:55
+#: templates/order/make-order-step3.jinja2:43
+msgid "Дальше"
+msgstr "Next"
 
-#: order/forms.py:44
-msgid "Введите город доставки"
-msgstr "Enter delivery city"
+#: templates/order/make-order-step2.jinja2:39
+msgid "Тип доставки"
+msgstr "Type of delivery"
 
-#: order/forms.py:51
-msgid "Введите адрес доставки"
-msgstr "Enter delivery address"
+#: templates/order/make-order-step2.jinja2:45
+msgid "Город"
+msgstr "City"
 
-#: order/models.py:12 profiles/models.py:14
-msgid "Формат номера телефона должен быть: +79999999999 или 89999999999"
-msgstr "The phone number format must be: +79999999999 or 89999999999"
+#: templates/order/make-order-step2.jinja2:51
+msgid "Адрес"
+msgstr "Address"
 
-#: order/models.py:16 order/models.py:90
-msgid "заказ"
-msgstr "order"
+#: templates/order/make-order-step4.jinja2:44
+msgid "ФИО:"
+msgstr "Your full name"
 
-#: order/models.py:17
-msgid "заказы"
-msgstr "orders"
+#: templates/order/make-order-step4.jinja2:50
+#: templates/order/one-order.jinja2:39
+msgid "Телефон:"
+msgstr "Phone number:"
 
-#: order/models.py:20
-msgid "ФИО заказчика"
+#: templates/order/make-order-step4.jinja2:70
+#: templates/order/one-order.jinja2:59
+msgid "Город:"
+msgstr "City:"
+
+#: templates/order/make-order-step4.jinja2:76
+#: templates/order/one-order.jinja2:65 templates/shops/shop_detail.jinja2:54
+msgid "Адрес:"
+msgstr "Address:"
+
+#: templates/order/make-order-step4.jinja2:106
+#: templates/order/one-order.jinja2:107
+msgid "шт."
+msgstr "pcs."
+
+#: templates/order/make-order-step4.jinja2:113
+#: templates/order/one-order.jinja2:115
+msgid "Итого:"
+msgstr "Total cost:"
+
+#: templates/order/make-order-step4.jinja2:117
+#: templates/order/one-order.jinja2:126
+#: templates/order/payment/payment-someone.jinja2:35
+#: templates/order/payment/payment.jinja2:33
+msgid "Оплатить"
+msgstr "Pay"
+
+#: templates/order/make-order-step4.jinja2:124
+msgid "Доставка (включена в итого):"
+msgstr "Delivery (included in total):"
+
+#: templates/order/one-order.jinja2:4 templates/order/one-order.jinja2:11
+msgid "Заказ №"
+msgstr "Order №"
+
+#: templates/order/one-order.jinja2:27
+msgid "Дата заказа:"
+msgstr "Date of delivery"
+
+#: templates/order/one-order.jinja2:33
+msgid "ФИО закзачика:"
 msgstr "Customer's full name"
 
-#: order/models.py:21 products/models.py:34
-msgid "дата добавления"
-msgstr "date added"
+#: templates/order/one-order.jinja2:77
+msgid "Статус:"
+msgstr "Status:"
 
-#: order/models.py:22
-msgid "email"
-msgstr "email"
+#: templates/order/one-order.jinja2:83
+msgid "Оплата не прошла:"
+msgstr "Payment failed:"
 
-#: order/models.py:23 profiles/models.py:28
-msgid "номер телефона"
-msgstr "phone number"
+#: templates/order/one-order.jinja2:120
+msgid "Доставка(включена в итого):"
+msgstr "Delivery (included in total):"
 
-#: order/models.py:25 order/models.py:87
-msgid "продукты в заказе"
-msgstr "products in order"
+#: templates/order/page-error.jinja2:4
+msgid "Ошибка при создании заказа"
+msgstr "Error when creating an order"
 
-#: order/models.py:27 order/models.py:35
-msgid "статус заказа"
-msgstr "order status"
+#: templates/order/page-error.jinja2:13
+msgid "1. Назад в корзину"
+msgstr "1. Back to cart"
 
-#: order/models.py:28
-msgid "доставка"
-msgstr "delivery"
+#: templates/order/page-error.jinja2:16
+msgid "2. Назад к оформлению заказа"
+msgstr "2. Back to checkout"
 
-#: order/models.py:36
-msgid "статусы заказов"
-msgstr "order statuses"
+#: templates/order/page-error.jinja2:19
+msgid "3. Назад в каталог"
+msgstr "3. Back to catalog"
 
-#: order/models.py:38
-msgid "название статуса"
-msgstr "status name"
+#: templates/order/payment/payment-progress.jinja2:4
+#: templates/order/payment/payment-someone.jinja2:4
+#: templates/order/payment/payment.jinja2:4
+msgid "Оплата заказа"
+msgstr "Payment for the order"
 
-#: order/models.py:55
-msgid "Онлайн картой"
-msgstr "Online card"
+#: templates/order/payment/payment-progress.jinja2:11
+#: templates/order/payment/payment-progress.jinja2:16
+msgid "Ожидание оплаты"
+msgstr "Waiting for payment"
 
-#: order/models.py:56 order/views.py:100
-msgid "Онлайн со случайного счета"
-msgstr "Online from a random account"
+#: templates/order/payment/payment-progress.jinja2:25
+msgid "Ждем подтверждения оплаты платежной системой"
+msgstr "We are waiting for confirmation of payment by the payment system"
 
-#: order/models.py:63
-msgid "доставка заказа"
-msgstr "order delivery"
+#: templates/order/payment/payment-someone.jinja2:11
+#: templates/order/payment/payment-someone.jinja2:16
+#: templates/order/payment/payment.jinja2:11
+#: templates/order/payment/payment.jinja2:16
+msgid "Оплата"
+msgstr "Payment"
 
-#: order/models.py:64
-msgid "доставки заказов"
-msgstr "delivery of orders"
+#: templates/order/payment/payment-someone.jinja2:28
+msgid "Номер счета"
+msgstr "Account number"
 
-#: order/models.py:70
-msgid "тип доставки"
-msgstr "type of delivery"
+#: templates/order/payment/payment-someone.jinja2:32
+msgid "Сгенерировать случайный счет"
+msgstr "Generate random account"
 
-#: order/models.py:72
-msgid "город доставки"
-msgstr "city of delivery"
+#: templates/order/payment/payment.jinja2:28
+msgid "Номер карты"
+msgstr "Card number"
 
-#: order/models.py:73
-msgid "адрес доставки"
-msgstr "delivery address"
+#: templates/products/product-detail.jinja2:36
+msgid "Цена от"
+msgstr "Price from"
 
-#: order/models.py:78
-msgid "тип оплаты"
-msgstr "type of payment"
+#: templates/products/product-detail.jinja2:70
+#: templates/products/product-detail.jinja2:169
+msgid "Купить"
+msgstr "Buy"
 
-#: order/models.py:86 order/models.py:89
-msgid "продукт в заказе"
-msgstr "product in order"
+#: templates/products/product-detail.jinja2:78
+msgid "Поздравляем!"
+msgstr "Congratulations!"
 
-#: order/models.py:91 shops/models.py:43
-msgid "цена"
-msgstr "price"
+#: templates/products/product-detail.jinja2:79
+msgid "Закрыть модальное окно"
+msgstr "Close this page"
 
-#: order/services/make_order.py:119 order/views.py:84 order/views.py:148
-msgid "Экспресс доставка"
-msgstr "Express delivery"
+#: templates/products/product-detail.jinja2:82
+msgid "Товар успешно добавлен в корзину!"
+msgstr "Product successfully added to cart!"
 
-#: products/models.py:10 products/models.py:29 products/models.py:54
-msgid "наименование"
-msgstr "name"
+#: templates/products/product-detail.jinja2:92
+msgid "Аксессуары"
+msgstr "Accessories"
 
-#: products/models.py:11 products/models.py:31 sliders/models.py:22
-msgid "описание"
-msgstr "description"
+#: templates/products/product-detail.jinja2:92
+msgid "Дизайн"
+msgstr "Design"
 
-#: products/models.py:15 products/models.py:36 sliders/models.py:39
-msgid "категория"
-msgstr "category"
+#: templates/products/product-detail.jinja2:92
+#: templates/shops/catalog.jinja2:69
+msgid "Игры"
+msgstr "Games"
 
-#: products/models.py:16
-msgid "категории"
-msgstr "categories"
+#: templates/products/product-detail.jinja2:100
+msgid "Описание"
+msgstr "Description"
 
-#: products/models.py:27
-msgid "продукты"
-msgstr "products"
+#: templates/products/product-detail.jinja2:103
+msgid "Продавцы"
+msgstr "Sellers"
 
-#: products/models.py:30 products/models.py:52
-msgid "характеристики"
-msgstr "characteristics"
-
-#: products/models.py:38
-msgid "ограниченный тираж"
-msgstr "limited edition"
-
-#: products/models.py:51
-msgid "характеристика"
+#: templates/products/product-detail.jinja2:106
+#: templates/products/product-detail.jinja2:146
+msgid "Характеристика"
 msgstr "characteristic"
 
-#: products/models.py:64
-msgid "изображение продукта"
-msgstr "product image"
+#: templates/products/product-detail.jinja2:109
+msgid "Отзывы "
+msgstr "Reviews "
 
-#: products/models.py:65
-msgid "изображения продукта"
-msgstr "product images"
+#: templates/products/product-detail.jinja2:177
+msgid "Обычная доставка"
+msgstr "Regular delivery"
 
-#: products/models.py:78
-msgid "свойство продукта"
-msgstr "product property"
+#: templates/products/product-detail.jinja2:183
+msgid "Онлайн картой"
+msgstr "By card online"
 
-#: products/models.py:79
-msgid "свойства продукта"
-msgstr "product property"
+#: templates/products/product-detail.jinja2:187
+msgid "Стоимость:"
+msgstr "Cost:"
 
-#: products/models.py:83
-msgid "значение"
-msgstr "value"
+#: templates/products/product-detail.jinja2:196
+msgid "Остаток в магазине:"
+msgstr "Remaining stock in the store:"
 
-#: products/views.py:92
-msgid "Файл успешно загружен."
-msgstr "Profile successfully updated"
+#: templates/products/product-detail.jinja2:200
+msgid " шт."
+msgstr " pcs."
 
-#: profiles/forms.py:32 profiles/forms.py:129
-msgid "Такая почта уже зарегистрированная"
-msgstr "This email is already registered"
+#: templates/products/product-detail.jinja2:231
+msgid "отзывов"
+msgstr "reviews"
 
-#: profiles/forms.py:46
-msgid "Вы ввели не корректные данные."
-msgstr "You entered incorrect data."
+#: templates/products/product-detail.jinja2:252
+msgid "Добавить отзыв"
+msgstr "Add review "
 
-#: profiles/forms.py:82
+#: templates/products/product-detail.jinja2:262
+msgid "Отзыв"
+msgstr "Review"
+
+#: templates/products/product-detail.jinja2:266
+msgid "Отправить отзыв"
+msgstr "Post a review"
+
+#: templates/products/product-detail.jinja2:271
+msgid "Для добавления отзывов, пользователь должен авторизоваться на сайте."
+msgstr "To add reviews, the you must log in to the site."
+
+#: templates/products/upload_file.jinja2:4
+#: templates/products/upload_file.jinja2:10
+msgid "Загрузить файл товаров"
+msgstr "Upload product file"
+
+#: templates/products/upload_file.jinja2:15
+msgid "Загрузить файл"
+msgstr "Upload file"
+
+#: templates/profiles/login.jinja2:5
+msgid "Страница авторизации"
+msgstr "Login page"
+
+#: templates/profiles/password-reset-complete.jinja2:6
+msgid "Пароль восстановлен"
+msgstr "Password has been restored"
+
+#: templates/profiles/password-reset-complete.jinja2:12
+msgid "Установлен новый пароль!"
+msgstr "Set new password"
+
+#: templates/profiles/password-reset-complete.jinja2:13
+msgid "авторизоваться"
+msgstr "log in"
+
+#: templates/profiles/password-reset-confirm.jinja2:6
+msgid "Сброс пароля"
+msgstr "Password reset"
+
+#: templates/profiles/password-reset-confirm.jinja2:10
+msgid "Укажите новый пароль"
+msgstr "Enter your new password"
+
+#: templates/profiles/password-reset-confirm.jinja2:14
+msgid "Восстановление пароля (2/2)"
+msgstr "Password reset (2/2)"
+
+#: templates/profiles/password-reset-confirm.jinja2:15
+msgid "Придумайте новый пароль для учетной записи"
+msgstr "Create a new password for your account"
+
+#: templates/profiles/password-reset-confirm.jinja2:22
+msgid "Новый пароль"
+msgstr "New password"
+
+#: templates/profiles/password-reset-confirm.jinja2:26
+#: templates/profiles/registr.jinja2:34
+msgid "Повторите пароль"
+msgstr "Repeat your password"
+
+#: templates/profiles/password-reset-confirm.jinja2:29
+msgid "Сохранить пароль"
+msgstr "Save password"
+
+#: templates/profiles/password-reset-done.jinja2:6
+msgid "Инструкция восстановление пароля"
+msgstr "Password reset instructions"
+
+#: templates/profiles/password-reset-done.jinja2:12
+msgid "Проверьте входящие письма электронной почты!"
+msgstr "Check your email inbox!"
+
+#: templates/profiles/password-reset-done.jinja2:13
+msgid "Мы отправили инструкцию по восстановлению пароля на указанный email."
+msgstr "We send you instructions for password reset to your email."
+
+#: templates/profiles/password-reset-done.jinja2:14
+msgid "Вы должны получить письмо в ближайшее время!"
+msgstr "You will receive an email soon!"
+
+#: templates/profiles/password-reset-form.jinja2:6
+msgid "Запрос на восстановление пароля"
+msgstr "Request to reset your password"
+
+#: templates/profiles/password-reset-form.jinja2:12
+msgid "Восстановление пароля (1/2)"
+msgstr "Password reset (1/2)"
+
+#: templates/profiles/password-reset-form.jinja2:13
+msgid ""
+"Для восстановления пароля введите адрес электронной почты, на которую "
+"зарегистрирована учетная запись"
+msgstr ""
+"To recover your password, please enter the email address to which "
+"account registered"
+
+#: templates/profiles/password-reset-form.jinja2:23
+msgid "Получить ссылку"
+msgstr "Get the link"
+
+#: templates/profiles/profile_form.jinja2:6
+msgid "Страница профиля"
+msgstr "Profile page"
+
+#: templates/profiles/profile_form.jinja2:46
+msgid "Редактировать профиль"
+msgstr "Edit profile"
+
+#: templates/profiles/profile_form.jinja2:59
+#: templates/profiles/profile_update_form.jinja2:98
+msgid "Пользователь не авторизован"
+msgstr "User is not authorized"
+
+#: templates/profiles/profile_update_form.jinja2:5
+msgid "Страница редактирования профиля"
+msgstr "Edit profile page"
+
+#: templates/profiles/profile_update_form.jinja2:43
+msgid "Аватар"
+msgstr "Avatar"
+
+#: templates/profiles/profile_update_form.jinja2:56
+#: templates/profiles/registr.jinja2:20
 msgid "Имя"
 msgstr "First name"
 
-#: profiles/forms.py:87
+#: templates/profiles/profile_update_form.jinja2:60
 msgid "Фамилия"
 msgstr "Last name"
 
-#: profiles/forms.py:113
-msgid "Тут можно изменить пароль"
-msgstr "You can change your password here"
+#: templates/profiles/profile_update_form.jinja2:76
+#: templates/profiles/registr.jinja2:29
+msgid "Пароль"
+msgstr "Password"
 
-#: profiles/forms.py:120
-msgid "Введите пароль повторно"
-msgstr "Please re-enter your password"
+#: templates/profiles/profile_update_form.jinja2:80
+msgid "Подтверждение пароля"
+msgstr "Password confirmation"
 
-#: profiles/models.py:23
-msgid "профиль"
-msgstr "profile"
+#: templates/profiles/profile_update_form.jinja2:85
+msgid "Сохранить"
+msgstr "Save"
 
-#: profiles/models.py:24
-msgid "профили"
-msgstr "profiles"
+#: templates/profiles/registr.jinja2:5
+msgid "Страница регистрации пользователя"
+msgstr "User registration page "
 
-#: profiles/models.py:27
-msgid "адрес"
-msgstr "address"
+#: templates/profiles/registr.jinja2:42
+msgid "Зарегистрироваться"
+msgstr "Sign up"
 
-#: profiles/models.py:29
-msgid "баланс аккаунта"
-msgstr "balance"
+#: templates/shops/catalog.jinja2:7
+msgid "Страница каталога товаров."
+msgstr "Product catalog page."
 
-#: profiles/models.py:30
-msgid "аватарка"
-msgstr "avatar"
+#: templates/shops/catalog.jinja2:17 templates/shops/catalog.jinja2:53
+msgid "Фильтр"
+msgstr "Filter"
 
-#: profiles/views.py:129
-msgid "Размер файла не должен превышать 2Мб"
-msgstr "The file size should not exceed 2MB"
+#: templates/shops/catalog.jinja2:28
+msgid "Цена:"
+msgstr "Price"
 
-#: profiles/views.py:137
-msgid "Профиль успешно обновлен"
-msgstr "Profile successfully updated"
+#: templates/shops/catalog.jinja2:35
+msgid "Название"
+msgstr "Shop name"
 
-#: profiles/views.py:146
-msgid "Пароли не совпадают"
-msgstr "The passwords do not match"
+#: templates/shops/catalog.jinja2:43
+msgid "Только товары в наличии"
+msgstr "Products in stock only"
 
-#: shops/forms.py:24
-msgid "Ошибка формы фильтр, поле - цена"
-msgstr "Error form filter, field - price"
+#: templates/shops/catalog.jinja2:49
+msgid "С бесплатной доставкой"
+msgstr "Free delivery"
 
-#: shops/models.py:14
-msgid "магазин"
-msgstr "shop"
+#: templates/shops/catalog.jinja2:62
+msgid "Популярные тэги"
+msgstr "Popular tags"
 
-#: shops/models.py:15
-msgid "магазины"
-msgstr "shops"
+#: templates/shops/catalog.jinja2:67 templates/shops/catalog.jinja2:72
+msgid "Видео"
+msgstr "Video"
 
-#: shops/models.py:18
-msgid "название"
-msgstr "shop name"
+#: templates/shops/catalog.jinja2:68 templates/shops/catalog.jinja2:71
+msgid "Разработка"
+msgstr "Development"
 
-#: shops/models.py:23
-msgid "товары в магазине"
-msgstr "products in shop"
+#: templates/shops/catalog.jinja2:70
+msgid "Asus"
+msgstr ""
 
-#: shops/models.py:26
-msgid "адресс"
-msgstr "address"
+#: templates/shops/catalog.jinja2:79
+msgid "Сортировать по:"
+msgstr "Sort by:"
 
-#: shops/models.py:27
-msgid "почта"
-msgstr "mail"
+#: templates/shops/catalog.jinja2:83 templates/shops/catalog.jinja2:88
+msgid "Популярности"
+msgstr "popularity"
 
-#: shops/models.py:28
-msgid "юридический адресс"
-msgstr "legal address"
+#: templates/shops/catalog.jinja2:84 templates/shops/catalog.jinja2:89
+msgid "Цене"
+msgstr "price"
 
-#: shops/models.py:38
-msgid "предложение"
-msgstr "offer"
+#: templates/shops/catalog.jinja2:85 templates/shops/catalog.jinja2:90
+msgid "Отзывам"
+msgstr "reviews"
 
-#: shops/models.py:39
-msgid "предложения"
-msgstr "offers"
+#: templates/shops/catalog.jinja2:86 templates/shops/catalog.jinja2:91
+msgid "Новизне"
+msgstr "newness"
 
-#: shops/models.py:44
-msgid "остаток"
-msgstr "remainder"
+#: templates/shops/shop_detail.jinja2:14
+msgid "Подробнее"
+msgstr "More"
 
-#: shops/models.py:51
-msgid "ограниченное предложение"
-msgstr "limited offer"
+#: templates/shops/shop_detail.jinja2:28
+msgid "Электронная почта:"
+msgstr "E-mail"
 
-#: shops/models.py:52
-msgid "ограниченные предложения"
-msgstr "limited offers"
+#: templates/shops/shop_detail.jinja2:41
+msgid "Номер телефона:"
+msgstr "Phone number"
 
-#: shops/models.py:57
-msgid "старая цена"
-msgstr "previous price"
+#: templates/shops/shop_detail.jinja2:66
+msgid "Юридический адрес:"
+msgstr "Legal address"
 
-#: shops/models.py:58
-msgid "новая цена"
-msgstr "new price"
+#: templates/shops/shop_detail.jinja2:80
+msgid "Немного о нас:"
+msgstr "About us:"
 
-#: sliders/models.py:18
-msgid "слайдер"
-msgstr "slider"
+#: templates/shops/shop_detail.jinja2:82
+msgid ""
+"Тестовое описание магазина, но я даже не знаю что можно тут написать. У нас "
+"много чего возможно. Главное верить в себя и своё описание, а ещё не быть "
+"слишком самоуверенным."
+msgstr "Some interesting info"
 
-#: sliders/models.py:19
-msgid "слайдеры"
-msgstr "sliders"
+#: templates/shops/shop_detail.jinja2:84
+msgid ""
+"Да-да, тут может быть вообще что угодно, но надеюсь это будет что-то "
+"приличное, а не как обычно. Хотя обычно прилично. Однако как-то решил "
+"подстраховаться. Ну, а нужную информацию вы видите слева или сверху, в "
+"зависимости от размера вашего экрна."
+msgstr "Switch to Russian to read"
 
-#: sliders/models.py:21
-msgid "заголовок"
-msgstr "title"
+#: templates/shops/shop_detail.jinja2:86
+msgid "Наш ассортимент"
+msgstr "Our assortment"
 
-#: sliders/models.py:24
-msgid "изображение слайдера"
-msgstr "slider image"
+#: templates/sliders/block-slider.jinja2:20
+msgid "К покупкам!"
+msgstr "Get started"
 
-#: sliders/models.py:34
-msgid "баннер"
-msgstr "banner"
+#~ msgid "продукт магазина"
+#~ msgstr "product"
 
-#: sliders/models.py:35
-msgid "баннера"
-msgstr "banners"
+#~ msgid "количество"
+#~ msgstr "count"
 
-#: sliders/models.py:37
-msgid "название категории товаров"
-msgstr "product category name"
+#~ msgid "Отзыв должен иметь минимум 2 слова."
+#~ msgstr "The review must have at least 2 words."
 
-#: sliders/models.py:41
-msgid "изображение баннера"
-msgstr "banner image"
+#~ msgid "продукт"
+#~ msgstr "product"
 
-#: sliders/models.py:42
-msgid "цена от"
-msgstr "from"
+#~ msgid "English"
+#~ msgstr "English"
+
+#~ msgid "Russian"
+#~ msgstr "Russian"
+
+#~ msgid "Введите телефон"
+#~ msgstr "Enter your phone"
+
+#~ msgid "Введите почту"
+#~ msgstr "Enter your email"
+
+#~ msgid "Введите адрес доставки"
+#~ msgstr "Enter delivery address"
+
+#~ msgid "Формат номера телефона должен быть: +79999999999 или 89999999999"
+#~ msgstr "The phone number format must be: +79999999999 or 89999999999"
+
+#~ msgid "заказы"
+#~ msgstr "orders"
+
+#~ msgid "дата добавления"
+#~ msgstr "date added"
+
+#~ msgid "email"
+#~ msgstr "email"
+
+#~ msgid "продукты в заказе"
+#~ msgstr "products in order"
+
+#~ msgid "статус заказа"
+#~ msgstr "order status"
+
+#~ msgid "доставка"
+#~ msgstr "delivery"
+
+#~ msgid "статусы заказов"
+#~ msgstr "order statuses"
+
+#~ msgid "название статуса"
+#~ msgstr "status name"
+
+#~ msgid "продукт в заказе"
+#~ msgstr "product in order"
+
+#~ msgid "цена"
+#~ msgstr "price"
+
+#~ msgid "Экспресс доставка"
+#~ msgstr "Express delivery"
+
+#~ msgid "наименование"
+#~ msgstr "name"
+
+#~ msgid "категория"
+#~ msgstr "category"
+
+#~ msgid "продукты"
+#~ msgstr "products"
+
+#~ msgid "характеристики"
+#~ msgstr "characteristics"
+
+#~ msgid "изображения продукта"
+#~ msgstr "product images"
+
+#~ msgid "свойство продукта"
+#~ msgstr "product property"
+
+#~ msgid "свойства продукта"
+#~ msgstr "product property"
+
+#~ msgid "значение"
+#~ msgstr "value"
+
+#~ msgid "Файл успешно загружен."
+#~ msgstr "Profile successfully updated"
+
+#~ msgid "Такая почта уже зарегистрированная"
+#~ msgstr "This email is already registered"
+
+#~ msgid "Вы ввели не корректные данные."
+#~ msgstr "You entered incorrect data."
+
+#~ msgid "профили"
+#~ msgstr "profiles"
+
+#~ msgid "баланс аккаунта"
+#~ msgstr "balance"
+
+#~ msgid "Размер файла не должен превышать 2Мб"
+#~ msgstr "The file size should not exceed 2MB"
+
+#~ msgid "Ошибка формы фильтр, поле - цена"
+#~ msgstr "Error form filter, field - price"
+
+#~ msgid "магазин"
+#~ msgstr "shop"
+
+#~ msgid "магазины"
+#~ msgstr "shops"
+
+#~ msgid "адресс"
+#~ msgstr "address"
+
+#~ msgid "почта"
+#~ msgstr "mail"
+
+#~ msgid "предложение"
+#~ msgstr "offer"
+
+#~ msgid "остаток"
+#~ msgstr "remainder"
+
+#~ msgid "ограниченное предложение"
+#~ msgstr "limited offer"
+
+#~ msgid "ограниченные предложения"
+#~ msgstr "limited offers"
+
+#~ msgid "старая цена"
+#~ msgstr "previous price"
+
+#~ msgid "новая цена"
+#~ msgstr "new price"
+
+#~ msgid "слайдер"
+#~ msgstr "slider"
+
+#~ msgid "слайдеры"
+#~ msgstr "sliders"
+
+#~ msgid "изображение слайдера"
+#~ msgstr "slider image"
+
+#~ msgid "баннер"
+#~ msgstr "banner"
+
+#~ msgid "баннера"
+#~ msgstr "banners"
