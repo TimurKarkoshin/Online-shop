@@ -4006,3 +4006,4 @@ TypeError: Object of type Product is not JSON serializable
 2023-10-16 21:45:05,756 [INFO] django.utils.autoreload: /Users/antongaranin/PycharmProjects/django_team_project/market/profiles/forms.py changed, reloading.
 2023-10-16 21:45:06,197 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
 2023-10-16 21:48:02,100 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-10-17 19:22:12,968 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
