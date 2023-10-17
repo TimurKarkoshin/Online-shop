@@ -25,7 +25,7 @@ class MainPageView(ListView):
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
 
-        limited_products = Product.objects.filter(limited=True)  # ограниченные предложения
+        limited_products = Product.objects.filter(limited=True)
 
         if limited_products:
             offers_time = datetime.datetime.today() + datetime.timedelta(days=1)
@@ -35,9 +35,8 @@ class MainPageView(ListView):
 
             limited_offer = cache.get("limited_offer")
             if not limited_offer:
-                # рандомный выбор огранич. товара
                 limited_offer = random.choice(LimitedOffer.objects.prefetch_related("product"))
-                cache.set("limited_offer", limited_offer, 86400)  # сохраняем ограненное предложения на сутки
+                cache.set("limited_offer", limited_offer, 86400)
 
             context["limited_offer"] = limited_offer
 
@@ -66,7 +65,7 @@ class CatalogListView(FormMixin, ListView):
     def get_queryset(self):
         product = Product.objects.prefetch_related("category", "offers")
 
-        if self.kwargs.get("cat", None) and self.request.method == "GET":  # возвращаем товары по категориям
+        if self.kwargs.get("cat", None) and self.request.method == "GET":
             product = product.filter(category__name=self.kwargs["cat"])
             # self.request.session["form"] = None
 

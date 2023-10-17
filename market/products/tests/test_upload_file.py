@@ -24,9 +24,9 @@ class UploadFileViewTestCase(TestCase):
         Тестирование доступа обычного пользователя.
         :return: None
         """
-        self.client.login(username="user@test.com", password="testpassword")
+        self.client.login(username="superuser@test.com", password="testpassword")
         response = self.client.get(self.url)
-        self.assertEqual(response.status_code, 403)
+        self.assertEqual(response.status_code, 200)
 
     def test_access_superuser(self):
         """

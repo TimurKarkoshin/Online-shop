@@ -8,9 +8,9 @@ class EmailBackend(ModelBackend):
     """Класс для установки аутентификации пользователя с помощью email."""
 
     def authenticate(self, request, username=None, password=None, **kwargs):
-        user_model = get_user_model()  # получаем модель пользователя
+        user_model = get_user_model()
         try:
-            user = user_model.objects.get(email=username)  # получаем пользователя по email
+            user = user_model.objects.get(email=username)
 
         except user_model.DoesNotExist:
             return None

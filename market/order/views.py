@@ -2,11 +2,13 @@ from django.shortcuts import render, redirect
 from django.views import View
 from django.views.generic import ListView
 from django.http import HttpRequest, HttpResponse
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.utils.translation import gettext_lazy as _
+
 from .forms import OrderStep1Form, OrderStep2Form, OrderStep3Form
 from order.services.make_order import MakeOrder
-from django.contrib.auth.mixins import LoginRequiredMixin
+from payment.functions import fictitious_payment
 from order.models import Order, ProductInOrder
-from django.utils.translation import gettext_lazy as _
 
 
 class MakeOrderStepOne(LoginRequiredMixin, View):
@@ -103,14 +105,46 @@ class PaymentView(LoginRequiredMixin, View):
         return render(request, self.template_name)
 
     def post(self, request: HttpRequest, order_pk) -> HttpResponse:
-        # str_card_number = request.POST["numero1"]
-        # int_card_numaber = int(str_card_number.replace(" ", ""))
+        order = Order.objects.filter(user=request.user).last()
+        products = ProductInOrder.objects.select_related("product").filter(order=order)
+        order_summ = sum([product.price for product in products])
+        card_number = request.POST["numero1"].replace(" ", "")
+
+        fictitious_payment.delay(order_pk, card_number, order_summ)
+
         return redirect(to="order:payment_progress", order_pk=order_pk)
 
 
 class PaymentProgressView(LoginRequiredMixin, View):
-    def get(self, request: HttpRequest) -> HttpResponse:
-        return render(request, "order/payment/payment-progress.jinja2")
+    def get(self, request: HttpRequest, order_pk) -> HttpResponse:
+        return render(
+            request,
+            "order/payment/payment-progress.jinja2",
+        )
+
+
+class SuccessPayment(LoginRequiredMixin, View):
+    """
+    Представление отображения удачной оплаты
+    """
+
+    def get(
+        self,
+        request: HttpRequest,
+    ) -> HttpResponse:
+        return render(request, "order/payment/success-payment.jinja2")
+
+
+class UnsuccessPayment(LoginRequiredMixin, View):
+    """
+    Представление отображения неудачной оплаты
+    """
+
+    def get(
+        self,
+        request: HttpRequest,
+    ) -> HttpResponse:
+        return render(request, "order/payment/unsuccess-payment.jinja2")
 
 
 class HistoryOrdersView(LoginRequiredMixin, ListView):

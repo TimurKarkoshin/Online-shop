@@ -32,7 +32,7 @@ class ProductDetailView(FormMixin, DetailView):
         offers = Offer.objects.prefetch_related("shop").filter(product_id=self.object.pk)
         product_details = ProductDetail.objects.prefetch_related("detail", "product").filter(product=self.object)
         comments = Comment.objects.select_related("author", "product").filter(product_id=self.object.pk)[:10]
-        comment_count = Comment.objects.filter(product_id=self.object.pk).count()  # comment_count = comments.count()
+        comment_count = Comment.objects.filter(product_id=self.object.pk).count()
 
         form_basket = BasketAddProductForm
 

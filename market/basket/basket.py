@@ -1,3 +1,4 @@
+from discounts.calculate import DiscountCalculation
 from shops.models import Offer
 from .models import Basket
 from django.http import HttpRequest, Http404
@@ -76,7 +77,11 @@ class BasketObject:
         :return: None
         """
         offer = Offer.objects.get(pk=offer_pk)
-        self.basket[str(offer_pk)] = {"product": offer.product.pk, "amount": amount, "price": str(offer.price)}
+
+        discounts = DiscountCalculation(offer)
+        price = discounts.get_best_discount()
+
+        self.basket[str(offer_pk)] = {"product": offer.product.pk, "amount": amount, "price": str(price)}
         self.save()
         self.update_or_create_basket(offer_pk=offer_pk, amount=amount)
 
@@ -132,12 +137,15 @@ class BasketObject:
         else:
             raise Http404
 
-    def get_total_price(self) -> int:
+    def get_total_price(self) -> Decimal:
         """
         Подсчет стоимости всех продуктов в корзине
         :return: сумма цен всех товаров в корзине
         """
-        return sum([Decimal(item["price"]) * item["amount"] for item in self.basket.values()])
+        price = sum([Decimal(item["price"]) * item["amount"] for item in self.basket.values()])
+        price = DiscountCalculation.return_basket_discount(price=price, basket_values=self.basket.values())
+
+        return price
 
     def clear(self) -> None:
         """

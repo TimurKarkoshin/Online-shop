@@ -26,6 +26,7 @@ class Order(models.Model):
     )
     order_status = models.ForeignKey("OrderStatus", verbose_name=_("статус заказа"), on_delete=models.CASCADE)
     delivery = models.ForeignKey("Delivery", verbose_name=_("доставка"), on_delete=models.CASCADE)
+    is_paid = models.BooleanField(default=False, verbose_name=_("Не оплачен"))
 
 
 class OrderStatus(models.Model):

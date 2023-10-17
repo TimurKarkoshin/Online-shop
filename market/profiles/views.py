@@ -85,7 +85,7 @@ class RegisterView(CreateView):
     def form_valid(self, form):
         with transaction.atomic():
             response = super().form_valid(form)
-            Profile.objects.create(user=self.object)  # создаем профиль пользователя
+            Profile.objects.create(user=self.object)
 
             username = form.cleaned_data.get("email")
             password = form.cleaned_data.get("password1")
