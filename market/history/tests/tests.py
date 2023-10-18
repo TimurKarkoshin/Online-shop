@@ -1,5 +1,5 @@
 ﻿from django.test import TestCase
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 
 
 class HistoryViewTestCase(TestCase):
@@ -9,9 +9,9 @@ class HistoryViewTestCase(TestCase):
         self.get_response = self.client.get(reverse(viewname="history:view_history"))
 
     def test_url_view_exist(self):
-        response = self.client.get("/history/")
-        self.assertEqual(response.status_code, 200)
+        response = self.client.get(reverse_lazy("history:view_history"))
+        self.assertEqual(response.status_code, 302)
 
     def test_url_view_correct_template(self):
-        self.assertEqual(self.get_response.status_code, 200)
-        self.assertTemplateUsed(self.get_response, "history/view-histroy.jinja2")
+        self.assertEqual(self.get_response.status_code, 302)
+        self.assertTemplateUsed(self.get_response, "history/view-history.jinja2")

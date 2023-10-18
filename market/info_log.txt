@@ -4007,3 +4007,820 @@ TypeError: Object of type Product is not JSON serializable
 2023-10-16 21:45:06,197 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
 2023-10-16 21:48:02,100 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
 2023-10-17 19:22:12,968 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-10-18 11:30:24,722 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-10-18 11:31:02,094 [ERROR] django.request: Internal Server Error: /ru/basket/add_product/1/1
+Traceback (most recent call last):
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UndefinedTable: relation "discounts_productdiscount" does not exist
+LINE 1: ...rity", "discounts_productdiscount"."percent" FROM "discounts...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/PycharmProjects/django_team_project/market/basket/views.py", line 28, in add_product
+    basket.add_product_in_basket(
+  File "/Users/antongaranin/PycharmProjects/django_team_project/market/basket/basket.py", line 70, in add_product_in_basket
+    self.add_new_product_in_basket(offer_pk=offer_pk, amount=amount)
+  File "/Users/antongaranin/PycharmProjects/django_team_project/market/basket/basket.py", line 82, in add_new_product_in_basket
+    price = discounts.get_best_discount()
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/PycharmProjects/django_team_project/market/discounts/calculate.py", line 29, in get_best_discount
+    self.calculate_product_discount()
+  File "/Users/antongaranin/PycharmProjects/django_team_project/market/discounts/calculate.py", line 67, in calculate_product_discount
+    if ProductDiscount.objects.filter(product=self.offer.product).filter(active=True):
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/models/query.py", line 412, in __bool__
+    self._fetch_all()
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/models/query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: relation "discounts_productdiscount" does not exist
+LINE 1: ...rity", "discounts_productdiscount"."percent" FROM "discounts...
+                                                             ^
+
+2023-10-18 11:31:02,148 [ERROR] django.request: Internal Server Error: /ru/basket/add_product/1
+Traceback (most recent call last):
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UndefinedTable: relation "discounts_productdiscount" does not exist
+LINE 1: ...rity", "discounts_productdiscount"."percent" FROM "discounts...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/PycharmProjects/django_team_project/market/basket/views.py", line 28, in add_product
+    basket.add_product_in_basket(
+  File "/Users/antongaranin/PycharmProjects/django_team_project/market/basket/basket.py", line 70, in add_product_in_basket
+    self.add_new_product_in_basket(offer_pk=offer_pk, amount=amount)
+  File "/Users/antongaranin/PycharmProjects/django_team_project/market/basket/basket.py", line 82, in add_new_product_in_basket
+    price = discounts.get_best_discount()
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/PycharmProjects/django_team_project/market/discounts/calculate.py", line 29, in get_best_discount
+    self.calculate_product_discount()
+  File "/Users/antongaranin/PycharmProjects/django_team_project/market/discounts/calculate.py", line 67, in calculate_product_discount
+    if ProductDiscount.objects.filter(product=self.offer.product).filter(active=True):
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/models/query.py", line 412, in __bool__
+    self._fetch_all()
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/models/query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: relation "discounts_productdiscount" does not exist
+LINE 1: ...rity", "discounts_productdiscount"."percent" FROM "discounts...
+                                                             ^
+
+2023-10-18 11:31:02,173 [ERROR] django.request: Internal Server Error: /ru/basket/add_product/1/1
+Traceback (most recent call last):
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UndefinedTable: relation "discounts_productdiscount" does not exist
+LINE 1: ...rity", "discounts_productdiscount"."percent" FROM "discounts...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/PycharmProjects/django_team_project/market/basket/views.py", line 28, in add_product
+    basket.add_product_in_basket(
+  File "/Users/antongaranin/PycharmProjects/django_team_project/market/basket/basket.py", line 70, in add_product_in_basket
+    self.add_new_product_in_basket(offer_pk=offer_pk, amount=amount)
+  File "/Users/antongaranin/PycharmProjects/django_team_project/market/basket/basket.py", line 82, in add_new_product_in_basket
+    price = discounts.get_best_discount()
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/PycharmProjects/django_team_project/market/discounts/calculate.py", line 29, in get_best_discount
+    self.calculate_product_discount()
+  File "/Users/antongaranin/PycharmProjects/django_team_project/market/discounts/calculate.py", line 67, in calculate_product_discount
+    if ProductDiscount.objects.filter(product=self.offer.product).filter(active=True):
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/models/query.py", line 412, in __bool__
+    self._fetch_all()
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/models/query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: relation "discounts_productdiscount" does not exist
+LINE 1: ...rity", "discounts_productdiscount"."percent" FROM "discounts...
+                                                             ^
+
+2023-10-18 11:31:03,057 [ERROR] django.request: Internal Server Error: /ru/basket/add_product/1/1
+Traceback (most recent call last):
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UndefinedTable: relation "discounts_productdiscount" does not exist
+LINE 1: ...rity", "discounts_productdiscount"."percent" FROM "discounts...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/PycharmProjects/django_team_project/market/basket/views.py", line 28, in add_product
+    basket.add_product_in_basket(
+  File "/Users/antongaranin/PycharmProjects/django_team_project/market/basket/basket.py", line 70, in add_product_in_basket
+    self.add_new_product_in_basket(offer_pk=offer_pk, amount=amount)
+  File "/Users/antongaranin/PycharmProjects/django_team_project/market/basket/basket.py", line 82, in add_new_product_in_basket
+    price = discounts.get_best_discount()
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/PycharmProjects/django_team_project/market/discounts/calculate.py", line 29, in get_best_discount
+    self.calculate_product_discount()
+  File "/Users/antongaranin/PycharmProjects/django_team_project/market/discounts/calculate.py", line 67, in calculate_product_discount
+    if ProductDiscount.objects.filter(product=self.offer.product).filter(active=True):
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/models/query.py", line 412, in __bool__
+    self._fetch_all()
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/models/query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: relation "discounts_productdiscount" does not exist
+LINE 1: ...rity", "discounts_productdiscount"."percent" FROM "discounts...
+                                                             ^
+
+2023-10-18 11:31:03,085 [WARNING] django.request: Not Found: /ru/basket/change_amount/1/+1
+2023-10-18 11:31:03,857 [WARNING] django.request: Not Found: /ru/basket/remove/50
+2023-10-18 11:31:03,878 [ERROR] django.request: Internal Server Error: /ru/basket/add_product/1/50
+Traceback (most recent call last):
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UndefinedTable: relation "discounts_productdiscount" does not exist
+LINE 1: ...rity", "discounts_productdiscount"."percent" FROM "discounts...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/PycharmProjects/django_team_project/market/basket/views.py", line 28, in add_product
+    basket.add_product_in_basket(
+  File "/Users/antongaranin/PycharmProjects/django_team_project/market/basket/basket.py", line 70, in add_product_in_basket
+    self.add_new_product_in_basket(offer_pk=offer_pk, amount=amount)
+  File "/Users/antongaranin/PycharmProjects/django_team_project/market/basket/basket.py", line 82, in add_new_product_in_basket
+    price = discounts.get_best_discount()
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/PycharmProjects/django_team_project/market/discounts/calculate.py", line 29, in get_best_discount
+    self.calculate_product_discount()
+  File "/Users/antongaranin/PycharmProjects/django_team_project/market/discounts/calculate.py", line 67, in calculate_product_discount
+    if ProductDiscount.objects.filter(product=self.offer.product).filter(active=True):
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/models/query.py", line 412, in __bool__
+    self._fetch_all()
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/models/query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: relation "discounts_productdiscount" does not exist
+LINE 1: ...rity", "discounts_productdiscount"."percent" FROM "discounts...
+                                                             ^
+
+2023-10-18 11:31:55,245 [ERROR] django.request: Internal Server Error: /ru/basket/add_product/1/1
+Traceback (most recent call last):
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UndefinedTable: relation "discounts_productdiscount" does not exist
+LINE 1: ...rity", "discounts_productdiscount"."percent" FROM "discounts...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/PycharmProjects/django_team_project/market/basket/views.py", line 28, in add_product
+    basket.add_product_in_basket(
+  File "/Users/antongaranin/PycharmProjects/django_team_project/market/basket/basket.py", line 70, in add_product_in_basket
+    self.add_new_product_in_basket(offer_pk=offer_pk, amount=amount)
+  File "/Users/antongaranin/PycharmProjects/django_team_project/market/basket/basket.py", line 82, in add_new_product_in_basket
+    price = discounts.get_best_discount()
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/PycharmProjects/django_team_project/market/discounts/calculate.py", line 29, in get_best_discount
+    self.calculate_product_discount()
+  File "/Users/antongaranin/PycharmProjects/django_team_project/market/discounts/calculate.py", line 67, in calculate_product_discount
+    if ProductDiscount.objects.filter(product=self.offer.product).filter(active=True):
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/models/query.py", line 412, in __bool__
+    self._fetch_all()
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/models/query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: relation "discounts_productdiscount" does not exist
+LINE 1: ...rity", "discounts_productdiscount"."percent" FROM "discounts...
+                                                             ^
+
+2023-10-18 11:31:55,291 [ERROR] django.request: Internal Server Error: /ru/basket/add_product/1
+Traceback (most recent call last):
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UndefinedTable: relation "discounts_productdiscount" does not exist
+LINE 1: ...rity", "discounts_productdiscount"."percent" FROM "discounts...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/PycharmProjects/django_team_project/market/basket/views.py", line 28, in add_product
+    basket.add_product_in_basket(
+  File "/Users/antongaranin/PycharmProjects/django_team_project/market/basket/basket.py", line 70, in add_product_in_basket
+    self.add_new_product_in_basket(offer_pk=offer_pk, amount=amount)
+  File "/Users/antongaranin/PycharmProjects/django_team_project/market/basket/basket.py", line 82, in add_new_product_in_basket
+    price = discounts.get_best_discount()
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/PycharmProjects/django_team_project/market/discounts/calculate.py", line 29, in get_best_discount
+    self.calculate_product_discount()
+  File "/Users/antongaranin/PycharmProjects/django_team_project/market/discounts/calculate.py", line 67, in calculate_product_discount
+    if ProductDiscount.objects.filter(product=self.offer.product).filter(active=True):
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/models/query.py", line 412, in __bool__
+    self._fetch_all()
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/models/query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: relation "discounts_productdiscount" does not exist
+LINE 1: ...rity", "discounts_productdiscount"."percent" FROM "discounts...
+                                                             ^
+
+2023-10-18 11:31:55,316 [ERROR] django.request: Internal Server Error: /ru/basket/add_product/1/1
+Traceback (most recent call last):
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UndefinedTable: relation "discounts_productdiscount" does not exist
+LINE 1: ...rity", "discounts_productdiscount"."percent" FROM "discounts...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/PycharmProjects/django_team_project/market/basket/views.py", line 28, in add_product
+    basket.add_product_in_basket(
+  File "/Users/antongaranin/PycharmProjects/django_team_project/market/basket/basket.py", line 70, in add_product_in_basket
+    self.add_new_product_in_basket(offer_pk=offer_pk, amount=amount)
+  File "/Users/antongaranin/PycharmProjects/django_team_project/market/basket/basket.py", line 82, in add_new_product_in_basket
+    price = discounts.get_best_discount()
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/PycharmProjects/django_team_project/market/discounts/calculate.py", line 29, in get_best_discount
+    self.calculate_product_discount()
+  File "/Users/antongaranin/PycharmProjects/django_team_project/market/discounts/calculate.py", line 67, in calculate_product_discount
+    if ProductDiscount.objects.filter(product=self.offer.product).filter(active=True):
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/models/query.py", line 412, in __bool__
+    self._fetch_all()
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/models/query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: relation "discounts_productdiscount" does not exist
+LINE 1: ...rity", "discounts_productdiscount"."percent" FROM "discounts...
+                                                             ^
+
+2023-10-18 11:31:56,236 [ERROR] django.request: Internal Server Error: /ru/basket/add_product/1/1
+Traceback (most recent call last):
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UndefinedTable: relation "discounts_productdiscount" does not exist
+LINE 1: ...rity", "discounts_productdiscount"."percent" FROM "discounts...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/PycharmProjects/django_team_project/market/basket/views.py", line 28, in add_product
+    basket.add_product_in_basket(
+  File "/Users/antongaranin/PycharmProjects/django_team_project/market/basket/basket.py", line 70, in add_product_in_basket
+    self.add_new_product_in_basket(offer_pk=offer_pk, amount=amount)
+  File "/Users/antongaranin/PycharmProjects/django_team_project/market/basket/basket.py", line 82, in add_new_product_in_basket
+    price = discounts.get_best_discount()
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/PycharmProjects/django_team_project/market/discounts/calculate.py", line 29, in get_best_discount
+    self.calculate_product_discount()
+  File "/Users/antongaranin/PycharmProjects/django_team_project/market/discounts/calculate.py", line 67, in calculate_product_discount
+    if ProductDiscount.objects.filter(product=self.offer.product).filter(active=True):
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/models/query.py", line 412, in __bool__
+    self._fetch_all()
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/models/query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: relation "discounts_productdiscount" does not exist
+LINE 1: ...rity", "discounts_productdiscount"."percent" FROM "discounts...
+                                                             ^
+
+2023-10-18 11:31:56,264 [WARNING] django.request: Not Found: /ru/basket/change_amount/1/+1
+2023-10-18 11:31:57,135 [WARNING] django.request: Not Found: /ru/basket/remove/50
+2023-10-18 11:31:57,158 [ERROR] django.request: Internal Server Error: /ru/basket/add_product/1/50
+Traceback (most recent call last):
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UndefinedTable: relation "discounts_productdiscount" does not exist
+LINE 1: ...rity", "discounts_productdiscount"."percent" FROM "discounts...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/PycharmProjects/django_team_project/market/basket/views.py", line 28, in add_product
+    basket.add_product_in_basket(
+  File "/Users/antongaranin/PycharmProjects/django_team_project/market/basket/basket.py", line 70, in add_product_in_basket
+    self.add_new_product_in_basket(offer_pk=offer_pk, amount=amount)
+  File "/Users/antongaranin/PycharmProjects/django_team_project/market/basket/basket.py", line 82, in add_new_product_in_basket
+    price = discounts.get_best_discount()
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/PycharmProjects/django_team_project/market/discounts/calculate.py", line 29, in get_best_discount
+    self.calculate_product_discount()
+  File "/Users/antongaranin/PycharmProjects/django_team_project/market/discounts/calculate.py", line 67, in calculate_product_discount
+    if ProductDiscount.objects.filter(product=self.offer.product).filter(active=True):
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/models/query.py", line 412, in __bool__
+    self._fetch_all()
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/models/query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: relation "discounts_productdiscount" does not exist
+LINE 1: ...rity", "discounts_productdiscount"."percent" FROM "discounts...
+                                                             ^
+
+2023-10-18 11:34:12,477 [WARNING] django.request: Not Found: /ru/basket/change_amount/1/+1
+2023-10-18 11:34:13,421 [WARNING] django.request: Not Found: /ru/basket/remove/50
+2023-10-18 11:47:12,469 [ERROR] django.request: Internal Server Error: /ru/order/history/7
+Traceback (most recent call last):
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/PycharmProjects/django_team_project/market/order/views.py", line 185, in get
+    return render(request, "order/one-order.jinja2", context=context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/template/loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/template/backends/django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/template/engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/template/engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/template/loaders/cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/template/loaders/base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/template/base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/template/base.py", line 200, in compile_nodelist
+    return parser.parse()
+           ^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/template/loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/template/loader_tags.py", line 232, in do_block
+    nodelist = parser.parse(("endblock",))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/templatetags/i18n.py", line 403, in do_translate
+    message_string = parser.compile_filter(bits[1])
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/template/base.py", line 600, in compile_filter
+    return FilterExpression(token, self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/template/base.py", line 703, in __init__
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: ''Оплата' from ''Оплата'
+2023-10-18 11:48:39,734 [ERROR] django.request: Internal Server Error: /ru/order/history/7
+Traceback (most recent call last):
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/PycharmProjects/django_team_project/market/order/views.py", line 185, in get
+    return render(request, "order/one-order.jinja2", context=context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/template/loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/template/backends/django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/template/engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/template/engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/template/loaders/cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/template/loaders/base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/template/base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/template/base.py", line 200, in compile_nodelist
+    return parser.parse()
+           ^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/template/loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/template/loader_tags.py", line 232, in do_block
+    nodelist = parser.parse(("endblock",))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/templatetags/i18n.py", line 403, in do_translate
+    message_string = parser.compile_filter(bits[1])
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/template/base.py", line 600, in compile_filter
+    return FilterExpression(token, self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/template/base.py", line 703, in __init__
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: ''Оплата' from ''Оплата'
+2023-10-18 12:10:46,544 [ERROR] django.request: Internal Server Error: /ru/order/history/7
+Traceback (most recent call last):
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/PycharmProjects/django_team_project/market/order/views.py", line 185, in get
+    return render(request, "order/one-order.jinja2", context=context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/template/loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/template/backends/django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/template/engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/template/engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/template/loaders/cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/template/loaders/base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/template/base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/template/base.py", line 200, in compile_nodelist
+    return parser.parse()
+           ^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/template/loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/template/loader_tags.py", line 232, in do_block
+    nodelist = parser.parse(("endblock",))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/templatetags/i18n.py", line 403, in do_translate
+    message_string = parser.compile_filter(bits[1])
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/template/base.py", line 600, in compile_filter
+    return FilterExpression(token, self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antongaranin/Library/Caches/pypoetry/virtualenvs/python-django-team27-tgZpN7bW-py3.11/lib/python3.11/site-packages/django/template/base.py", line 703, in __init__
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: ''Оплата' from ''Оплата'
