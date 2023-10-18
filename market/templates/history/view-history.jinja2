@@ -34,9 +34,9 @@
     </div>
     <div class="Section-content">
         <div class="Cards">
-            {% for obj in user_histroy %}
+            {% for obj in history %}
                 <div class="Card">
-                    <a class="Card-picture" href="assets/img/content/home/bigGoods.png"><img src="{% static "assets/img/content/home/bigGoods.png" %}" alt="bigGoods.png" /></a>
+                    <a class="Card-picture" href="assets/img/content/home/bigGoods.png"><img src="{{ obj.product.preview.url }}" alt="bigGoods.png" /></a>
                     <div class="Card-content">
                         <strong class="Card-title"><a href=/products/{{ obj.product.id }}/>{{ obj.product.name }}</a>
                         </strong>

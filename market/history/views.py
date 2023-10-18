@@ -4,10 +4,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 class HistoryView(LoginRequiredMixin, ListView):
-    template_name = "history/view-history.jinja2"
-    model = BrowsingHistory
+    template_name = "history/view-histroy.jinja2"
     context_object_name = "history"
 
-    def get_context_data(self, **kwargs):
-        context = {"user_history": BrowsingHistory.objects.filter(user=self.request.user)}
-        return context
+    def get_queryset(self):
+        return BrowsingHistory.objects.filter(user=self.request.user)
