@@ -129,11 +129,12 @@ class ProfileDetailView(LoginRequiredMixin, TemplateView):
             with transaction.atomic():
                 avatar = request.FILES.get("avatar")
                 phone = form.cleaned_data.get("phone")
-                if avatar.size > 1024 * 1024:
-                    return HttpResponse(_("Размер файла не должен превышать 2Мб"))
                 profile = self.request.user.profile
                 if avatar:
-                    profile.avatar = avatar
+                    if avatar.size > 1024 * 1024:
+                        return HttpResponse(_("Размер файла не должен превышать 2Мб"))
+                    else:
+                        profile.avatar = avatar
                 profile.phone = phone
                 profile.save()
 
