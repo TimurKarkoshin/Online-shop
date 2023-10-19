@@ -30,3 +30,4 @@ django.template.exceptions.TemplateDoesNotExist: history/browsinghistory_list.ht
 2023-10-18 11:02:34,775 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
 2023-10-18 11:03:09,276 [INFO] django.utils.autoreload: C:\OwnFinal\market\history\views.py changed, reloading.
 2023-10-18 11:03:11,198 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-10-19 18:22:35,611 [WARNING] django.request: Not Found: /api/v1/order/status/50

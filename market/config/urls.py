@@ -21,7 +21,7 @@ from django.urls import path, include
 
 from config import settings
 
-urlpatterns = []
+urlpatterns = [path("api/", include("payment.urls"))]
 
 urlpatterns += i18n_patterns(
     path("", include("shops.urls")),
