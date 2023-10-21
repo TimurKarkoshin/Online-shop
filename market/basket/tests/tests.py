@@ -13,7 +13,7 @@ class BasketViewTestCase(TestCase):
         self.get_response = self.client.get(reverse(viewname="basket:basket_view"))
 
     def test_url_view_exist(self):
-        response = self.client.get("/basket/")
+        response = self.client.get("/ru/basket/")
         self.assertEqual(response.status_code, 200)
 
     def test_url_view_correct_template(self):

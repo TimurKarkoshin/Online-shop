@@ -1,5 +1,5 @@
 {% extends "general/base.jinja2" %}
-{% load static %}
+{% load static i18n %}
 {% block title %}
     {{product.name}}
 {% endblock %}
@@ -33,7 +33,7 @@
                                 <div class="ProductCard-info">
                                     <div class="ProductCard-cost">
                                         <div class="ProductCard-price">
-                                            Цена от {{min_price}}$
+                                            {% translate "Цена от" %} {{min_price}}$
                                         </div>
                                     </div>
                                 </div>
@@ -67,7 +67,7 @@
                                         <a href="#modal_open">
                                             <button class="btn btn_primary"  type="submit" value="add">
                                                 <img class="btn-icon" src="{% static "assets/img/icons/card/cart_white.svg" %}" alt="cart_white.svg" />
-                                                <span class="btn-content">Купить</span>
+                                                <span class="btn-content">{% translate "Купить" %}</span>
                                             </button>
                                         </a>
                                     </div>
@@ -75,11 +75,11 @@
                                         <div class="my_modal-dialog">
                                             <div class="my_modal-content">
                                                 <div class="my_modal-header">
-                                                    <p class="my_modal-title">Поздравляем!</p>
-                                                    <a href="#" title="Закрыть модальное окно" class="close">×</a>
+                                                    <p class="my_modal-title">{% translate "Поздравляем!" %}</p>
+                                                    <a href="#" title="{% translate "Закрыть модальное окно" %}" class="close">×</a>
                                                 </div>
                                                 <div class="my_modal-body">
-                                                    <p>Товар успешно добавлен в корзину!</p>
+                                                    <p>{% translate "Товар успешно добавлен в корзину!" %}</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -89,7 +89,7 @@
                             <div class="ProductCard-footer">
                                 <div class="ProductCard-tags">
                                     <strong class="ProductCard-tagsTitle">Тэги:
-                                    </strong><a href="#">Аксессуары</a>,<a href="#">Дизайн</a>,<a href="#">Игры</a>
+                                    </strong><a href="#">{% translate "Аксессуары" %}</a>,<a href="#">{% translate "Дизайн" %}</a>,<a href="#">{% translate "Игры" %}</a>
                                 </div>
                             </div>
                         </div>
@@ -97,16 +97,16 @@
                     <div class="Tabs Tabs_default">
                         <div class="Tabs-links">
                             <a class="Tabs-link_ACTIVE Tabs-link" href="#description">
-                                <span>Описание</span>
+                                <span>{% translate "Описание" %}</span>
                             </a>
                             <a class="Tabs-link" href="#sellers">
-                                <span>Продавцы</span>
+                                <span>{% translate "Продавцы" %}</span>
                             </a>
                             <a class="Tabs-link" href="#addit">
-                                <span>Характеристика</span>
+                                <span>{% translate "Характеристика" %}</span>
                             </a>
                             <a class="Tabs-link" href="#reviews">
-                                <span>Отзывы ({{ comment_count }})</span>
+                                <span>{% translate "Отзывы " %}({{ comment_count }})</span>
                             </a>
                         </div>
                         <div class="Tabs-wrap">
@@ -143,7 +143,7 @@
                                     <table>
                                         <tr>
                                             <th>
-                                                Характеристика
+                                                {% translate "Характеристика" %}
                                             </th>
                                             <th>
                                                 {{product.description}}
@@ -166,25 +166,25 @@
                                                                 <div class="ProductCard-cartElement" style="margin-top: 10px;">
                                                                     <a class="btn btn_primary" href="{% url "basket:add_product" offer.product.pk offer.pk %}">
                                                                         <img class="btn-icon" src="{% static "assets/img/icons/card/cart_white.svg" %}" alt="cart_white.svg" />
-                                                                        <span class="btn-content">Купить</span>
+                                                                        <span class="btn-content">{% translate "Купить" %}</span>
                                                                     </a>
                                                                 </div>
                                                         </div>
                                                         <div class="row-block">
                                                             <div class="Order-info Order-info_delivery">
-                                                                <div class="Order-infoType">Тип доставки:
+                                                                <div class="Order-infoType">{% translate "Тип доставки:" %}
                                                                 </div>
-                                                                <div class="Order-infoContent">Обычная доставка
+                                                                <div class="Order-infoContent">{% translate "Обычная доставка" %}
                                                                 </div>
                                                             </div>
                                                             <div class="Order-info Order-info_pay">
-                                                                <div class="Order-infoType">Оплата:
+                                                                <div class="Order-infoType">{% translate "Оплата:" %}
                                                                 </div>
-                                                                <div class="Order-infoContent">Онлайн картой
+                                                                <div class="Order-infoContent">{% translate "Онлайн картой" %}
                                                                 </div>
                                                             </div>
                                                             <div class="Order-info">
-                                                                <div class="Order-infoType">Стоимость:
+                                                                <div class="Order-infoType">{% translate "Стоимость:" %}
                                                                 </div>
                                                                 <div class="Order-infoContent">
                                                                     <span class="Order-price">
@@ -193,11 +193,11 @@
                                                                 </div>
                                                             </div>
                                                             <div class="Order-info">
-                                                                <div class="Order-infoType">Остаток в магазине:
+                                                                <div class="Order-infoType">{% translate "Остаток в магазине:" %}
                                                                 </div>
                                                                 <div class="Order-infoContent">
                                                                     <span class="Order-price">
-                                                                        {{offer.remainder}} шт.
+                                                                         {{offer.remainder}}{% translate " шт." %}
                                                                     </span>
                                                                 </div>
                                                             </div>
@@ -228,8 +228,7 @@
                             <div class="Tabs-block" id="reviews">
                                 <header class="Section-header">
                                     <h3 class="Section-title">
-                                        {{ comment_count }} отзывов
-                                    </h3>
+                                        {{ comment_count }} {% translate "отзывов" %}
                                 </header>
                                 <div class="Comments">
                                     {% for comment in comments_list %}
@@ -250,7 +249,7 @@
                                     {% endfor %}
                                 </div>
                                 <header class="Section-header Section-header_product">
-                                    <h3 class="Section-title">Добавить отзыв
+                                    <h3 class="Section-title">{% translate "Добавить отзыв" %}
                                     </h3>
                                 </header>
                                 <div class="Tabs-addComment">
@@ -260,16 +259,16 @@
 
                                             <div class="form-group">
                                                 {{ form.text.errors }}
-                                                <textarea class="form-textarea" name="text" id="review" placeholder="Отзыв"></textarea>
+                                                <textarea class="form-textarea" name="text" id="review" placeholder="{% translate "Отзыв" %}"></textarea>
                                             </div>
 
                                             <div class="form-group">
-                                                <button class="btn btn_muted" type="submit">Отправить отзыв
+                                                <button class="btn btn_muted" type="submit">{% translate "Отправить отзыв" %}
                                                 </button>
                                             </div>
                                         </form>
                                     {% else %}
-                                        <p>Для добавления отзывов, пользователь должен авторизоваться на сайте.</p>
+                                        <p>{% translate "Для добавления отзывов, пользователь должен авторизоваться на сайте." %}</p>
                                     {% endif %}
                                 </div>
                             </div>

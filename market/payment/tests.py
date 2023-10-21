@@ -1,8 +1,8 @@
 from django.contrib.auth.models import User
 from django.urls import reverse
 from rest_framework import status
-from rest_framework.test import APITestCase
 from order.models import Order, OrderStatus, Delivery
+from rest_framework.test import APITestCase
 
 
 class PaymentAPITestCase(APITestCase):

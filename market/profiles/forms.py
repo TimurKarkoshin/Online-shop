@@ -77,10 +77,20 @@ class UserForm(forms.ModelForm):
         fields = ["first_name", "last_name", "email"]
         widgets = {
             "first_name": forms.TextInput(
-                attrs={"class": "form-input", "type": "text", "data-validate": "require", "placeholder": "Имя"}
+                attrs={
+                    "class": "form-input",
+                    "type": "text",
+                    "data-validate": "require",
+                    "placeholder": _("Имя"),
+                }
             ),
             "last_name": forms.TextInput(
-                attrs={"class": "form-input", "type": "text", "data-validate": "require", "placeholder": "Фамилия"}
+                attrs={
+                    "class": "form-input",
+                    "type": "text",
+                    "data-validate": "require",
+                    "placeholder": _("Фамилия"),
+                }
             ),
             "email": forms.EmailInput(
                 attrs={
@@ -122,7 +132,7 @@ class UserForm(forms.ModelForm):
                 "class": "form-input",
                 "name": "password1",
                 "type": "password",
-                "placeholder": "Тут можно изменить пароль",
+                "placeholder": _("Тут можно изменить пароль"),
             }
         ),
         required=False,
@@ -135,7 +145,7 @@ class UserForm(forms.ModelForm):
                 "class": "form-input",
                 "name": "password2",
                 "type": "password",
-                "placeholder": "Введите пароль повторно",
+                "placeholder": _("Введите пароль повторно"),
             }
         ),
         required=False,

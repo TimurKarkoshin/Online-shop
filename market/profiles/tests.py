@@ -2,7 +2,7 @@ from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
 from django.template.response import TemplateResponse
 from django.test import TestCase, Client
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from django.core.files.uploadedfile import SimpleUploadedFile
 
 
@@ -20,8 +20,8 @@ class ProfileViewTestCase(TestCase):
         cls.user = User.objects.get(pk=2)
         cls.user_password = "admin27admin"
 
-        cls.log_page = "http://127.0.0.1:8000/profile/login/"
-        cls.reg_page = "http://127.0.0.1:8000/profile/registration/"
+        cls.log_page = reverse_lazy("profiles:login")
+        cls.reg_page = reverse_lazy("profiles:registration_user")
 
         cls.register_data = {
             "username": "test_name",
@@ -48,7 +48,7 @@ class ProfileViewTestCase(TestCase):
         response: HttpResponseRedirect = self.client.post(self.log_page, data=data)
 
         self.assertEqual(302, response.status_code)
-        self.assertEqual("/", response.url)
+        self.assertEqual("/ru/", response.url)
 
     def test_login_with_username(self):
         data = {
@@ -70,7 +70,7 @@ class ProfileViewTestCase(TestCase):
         response: HttpResponseRedirect = self.client.post(self.reg_page, data=self.register_data)
 
         self.assertEqual(302, response.status_code)
-        self.assertEqual("/profile/login/", response.url)
+        self.assertEqual("/ru/profile/login/", response.url)
 
         self.assertTrue(User.objects.filter(email="test_email@email.com").exists())
         self.assertTrue(Profile.objects.filter(user__username="test_name").exists())

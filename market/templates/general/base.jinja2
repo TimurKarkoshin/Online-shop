@@ -19,7 +19,7 @@
 
     <title>
         {% block title %}
-            Заголовок
+            {% translate "Заголовок" %}
         {% endblock %}
     </title>
 </head>
@@ -42,7 +42,7 @@
         <main class="Main">
 
             {% block content %}
-                <h1>Ваш контент</h1>
+                <h1>{% translate "Ваш контент" %}</h1>
             {% endblock %}
 
         </main>

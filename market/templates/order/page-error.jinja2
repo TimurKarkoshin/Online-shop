@@ -1,7 +1,7 @@
 ﻿{% extends "general/base.jinja2" %}
-{% load static %}
+{% load static i18n %}
 {% block title %}
-    Ошибка при создании заказа
+    {% translate 'Ошибка при создании заказа' %}
 {% endblock %}
 {% block content %}
 <div class="Middle Middle_top">
@@ -10,13 +10,13 @@
             <div class="Section-content">
                 <h1>{{error}}</h1>
                 <h2>
-                    <a href={% url "basket:basket_view" %}>1. Назад в корзину</a>
+                    <a href={% url "basket:basket_view" %}>{% translate '1. Назад в корзину' %}</a>
                 </h2>
                 <h2>
-                    <a href={% url "order:make_order_step_1" %}>2. Назад к оформлению заказа</a>
+                    <a href={% url "order:make_order_step_1" %}>{% translate '2. Назад к оформлению заказа' %}</a>
                 </h2>
                 <h2>
-                    <a href={% url "shops:shops-catalog" %}>3. Назад в каталог</a>
+                    <a href={% url "shops:shops-catalog" %}>{% translate '3. Назад в каталог' %}</a>
                 </h2>
             </div>
         </div>

@@ -1,19 +1,19 @@
 ﻿{% extends "general/base.jinja2" %}
-{% load static %}
+{% load static i18n %}
 {% block title %}
-    Оплата заказа
+    {% translate 'Оплата заказа' %}
 {% endblock %}
 {% block content %}
     <div class="Middle Middle_top">
         <div class="Middle-top">
             <div class="wrap">
                 <div class="Middle-header">
-                    <h1 class="Middle-title">Оплата
+                    <h1 class="Middle-title">{% translate 'Оплата' %}
                     </h1>
                     <ul class="breadcrumbs Middle-breadcrumbs">
-                        <li class="breadcrumbs-item"><a href={% url "shops:shops-catalog" %}>Каталог</a>
+                        <li class="breadcrumbs-item"><a href={% url "shops:shops-catalog" %}>{% translate 'Каталог' %}</a>
                         </li>
-                        <li class="breadcrumbs-item breadcrumbs-item_current"><span>Оплата</span>
+                        <li class="breadcrumbs-item breadcrumbs-item_current"><span>{% translate 'Оплата' %}</span>
                         </li>
                     </ul>
                 </div>
@@ -25,12 +25,12 @@
                 {% csrf_token %}
                     <div class="Payment-card">
                         <div class="form-group">
-                            <label class="form-label">Номер карты
+                            <label class="form-label">{% translate 'Номер карты' %}
                             </label>
                             <input class="form-input Payment-bill" id="numero1" name="numero1" type="text" placeholder="9999 9999" data-mask="9999 9999" data-validate="require pay" />
                         </div>
                     </div>
-                    <div class="Payment-pay"><button type="submit" class="btn btn_primary">Оплатить</button>
+                    <div class="Payment-pay"><button type="submit" class="btn btn_primary">{% translate 'Оплатить' %}</button>
                     </div>
                 </form>
             </div>

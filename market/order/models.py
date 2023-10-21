@@ -33,8 +33,8 @@ class OrderStatus(models.Model):
     """Модель статуса заказа"""
 
     class Meta:
-        verbose_name = "статус заказа"
-        verbose_name_plural = "статусы заказов"
+        verbose_name = _("статус заказа")
+        verbose_name_plural = _("статусы заказов")
 
     name = models.CharField(max_length=15, verbose_name=_("название статуса"))
 
@@ -53,8 +53,8 @@ class PayChoices(models.TextChoices):
     Модель для выбора типа оплаты
     """
 
-    CARD = "Онлайн картой", "Онлайн картой"
-    ACCOUNT = "Онлайн со случайного счета", "Онлайн со случайного счета"
+    CARD = _("Онлайн картой"), _("Онлайн картой")
+    ACCOUNT = _("Онлайн со случайного счета"), _("Онлайн со случайного счета")
 
 
 class Delivery(models.Model):

@@ -1,3 +1,5 @@
+import logging
+
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -19,6 +21,8 @@ from django.views.generic import CreateView, FormView, TemplateView
 from config import settings
 from .forms import RegisterUserForm, EmailAuthenticationForm, UserForm
 from .models import Profile
+
+logger = logging.getLogger(__name__)
 
 
 class ResetPasswordView(PasswordResetView):
@@ -97,7 +101,7 @@ class ProfileLogoutView(LogoutView):
 
 class ProfileView(LoginRequiredMixin, TemplateView):
     template_name = "profiles/profile_form.jinja2"
-    queryset = User.objects.select_related("first_name", "last_name")
+    queryset = User.objects.only("first_name", "last_name")
     context_object_name = "account"
 
 
@@ -125,10 +129,12 @@ class ProfileDetailView(LoginRequiredMixin, TemplateView):
             with transaction.atomic():
                 avatar = request.FILES.get("avatar")
                 phone = form.cleaned_data.get("phone")
-
                 profile = self.request.user.profile
                 if avatar:
-                    profile.avatar = avatar
+                    if avatar.size > 1024 * 1024:
+                        return HttpResponse(_("Размер файла не должен превышать 2Мб"))
+                    else:
+                        profile.avatar = avatar
                 profile.phone = phone
                 profile.save()
 
@@ -144,6 +150,6 @@ class ProfileDetailView(LoginRequiredMixin, TemplateView):
                 else:
                     messages.error(request, _("Пароли не совпадают"))
         else:
-            print(form.errors)
+            logger.info(form.errors)
         context = self.get_context_data()
         return render(request, "profiles/profile_update_form.jinja2", context=context)

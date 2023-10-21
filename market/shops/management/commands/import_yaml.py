@@ -14,7 +14,7 @@ from django.core.mail import send_mail
 from django.core.management.base import BaseCommand
 from products.models import Category, Product, Detail, ProductDetail, ProductImage
 from shops.models import Shop, Offer
-from market.config import settings
+from config import settings
 
 logger = logging.getLogger(__name__)
 
