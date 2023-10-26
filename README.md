@@ -81,3 +81,9 @@ celery -A config beat -l info
 ```shell
 python manage.py import_yaml --file filename.yaml --email example@mail.com
 ```
+
+<details> 
+  <summary>Внешний вид главной страницы</summary>
+   ![Снимок экрана (383)](https://github.com/TimurKarkoshin/Online-shop/assets/144448914/9287cef1-328a-4659-9aa9-8f7ae4c0cb3e)
+</details>
+
